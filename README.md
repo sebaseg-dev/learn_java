@@ -41,3 +41,8 @@ My goal is to apply the concepts from these courses to a live project, building 
 When I was looking for information on how to start a company in France and how to choose between different legal forms, I was overwhelmed—even with my legal, accounting, and tax background. It is incredibly complex to calculate how the choice of legal form impacts taxes, and official tools sometimes provide incorrect or undocumented results.
 
 I would like to develop an open-source app to help entrepreneurs navigate these options. The project could evolve from a simple Java terminal program for calculating tax rates to a full-stack application using Spring Boot.
+
+# Let's begin with the beginning
+
+It's time to begin with the first course of the path: [Apprenez à programmer en Java](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java)
+
