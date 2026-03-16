@@ -16,3 +16,10 @@ java src/Main.java
 # >> Hello world!
 # >> A function has been executed.
 ```
+
+Passing "hello world" to a function call with parameters:
+
+```bash
+java src/Main.java
+# >> Hello world!
+```

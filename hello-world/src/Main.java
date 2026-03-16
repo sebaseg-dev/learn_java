@@ -1,11 +1,10 @@
 public class Main {
     public static void main(String[] args) {
-        String texte = "Hello world!";
-        System.out.println(texte);
-        Main.affiche();
+        String text = "Hello world!";
+        Main.affiche(text);
     }
     
-    public static void affiche() {
-        System.out.println("A function has been executed.");
+    public static void affiche(String text) {
+        System.out.println(text);
     }
 }
