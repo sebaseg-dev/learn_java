@@ -8,3 +8,11 @@ Trying to print-out "Hello World!" in the console.
 java src/Main.java
 # >> Hello world!
 ```
+
+Then, adding a simple function without parameter:
+
+```bash
+java src/Main.java
+# >> Hello world!
+# >> A function has been executed.
+```
