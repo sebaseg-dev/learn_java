@@ -18,3 +18,13 @@ Passing "hello world" and its punctuation to a `concatenate` function:
 java src/Main.java
 # >> Hello world!
 ```
+
+> Exercise `OpenClassrooms > Apprenez à programmer en Java course > Part 1 – Maîtrisez les bases de Java > 5 – [Manipulez vos données](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java/8439941-manipulez-vos-donnees)
+
+- Declare an array of 7 integers
+- Loop on each integer
+- If the value is 0, increment a variable named `cpt`
+- Display `cpt` value at the end of the function execution
+
+_Test case: \[26, 10, 1985, 0, 12, 11, 1955] should display `1`._
+
