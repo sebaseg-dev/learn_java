@@ -1,10 +1,10 @@
 public class Main {
     public static void main(String[] args) {
-        String text = "Hello world!";
-        Main.affiche(text);
+        String toDisplay = Main.concatenate("Hello World", "!");
+        System.out.println(toDisplay);
     }
     
-    public static void affiche(String text) {
-        System.out.println(text);
+    public static String concatenate(final String phrase, final String punctuation){
+        return phrase + punctuation;
     }
 }
