@@ -10,6 +10,8 @@
 
 ~~Passing "hello world" to a function call with parameters:~~
 
+> Exercise from `OpenClassrooms > Apprenez à programmer en Java course > Part 1 – Maîtrisez les bases de Java > 4 – [Exécutez des fonctions](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java/8439602-executez-des-fonctions):
+
 Passing "hello world" and its punctuation to a `concatenate` function:
 
 ```bash
