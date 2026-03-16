@@ -29,4 +29,3 @@ java src/Main.java
 _Test case: `[26, 10, 1985, 0, 12, 11, 1955]` should display `1`._
 
 ✅ Done
->>>>>>> 0dd4c3a (exercise P1-5 ok)
