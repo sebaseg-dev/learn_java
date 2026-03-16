@@ -26,5 +26,7 @@ java src/Main.java
 - If the value is 0, increment a variable named `cpt`
 - Display `cpt` value at the end of the function execution
 
-_Test case: \[26, 10, 1985, 0, 12, 11, 1955] should display `1`._
+_Test case: `[26, 10, 1985, 0, 12, 11, 1955]` should display `1`._
 
+✅ Done
+>>>>>>> 0dd4c3a (exercise P1-5 ok)
