@@ -29,5 +29,12 @@ public class Main {
         System.out.println(porteFermee.estVerouillee());
         System.out.println(murNonPorteur.estTraversable());
         System.out.println(porteOuverte.estVerouillee());
+        
+        System.out.println("Ma porte est : " + porteOuverte.getCouleur());
+        System.out.println("Mon mur est Porteur est : " + murPorteur.getCouleur());
+        System.out.println("Mon mur est Non-Porteur est : " + murNonPorteur.getCouleur());
+        
+        murNonPorteur.setCouleur(Couleur.VERT);
+        System.out.println("J'ai repeint mon mur non porteur en : " + murNonPorteur.getCouleur());
     }
 }

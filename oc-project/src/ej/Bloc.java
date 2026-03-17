@@ -5,6 +5,7 @@ public abstract class Bloc {
     protected int longueur;
     protected int largeur;
     protected int hauteur;
+    protected Couleur couleur;
     
     public Bloc(final int longueur, final int largeur, final int hauteur) {
         this.longueur = longueur;
@@ -25,4 +26,12 @@ public abstract class Bloc {
     }
     
     public abstract boolean canPass();
+    
+    public void setCouleur(Couleur couleur) {
+        this.couleur = couleur;
+    }
+    
+    public Couleur getCouleur() {
+        return this.couleur;
+    }
 }
