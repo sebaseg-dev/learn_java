@@ -9,7 +9,7 @@ Following the course, neither _Maven_ nor _Gradle_ is used for the project. Ever
 ### Compile
 
 ```bash
-javac -d bin src/ej/Main.java src/ej/Bloc.java
+javac -d bin src/ej/Main.java src/ej/Bloc.java src/ej/Mur.java src/ej/Porte.java
 ```
 
 ### Execute
@@ -25,3 +25,9 @@ java -cp bin ej.Main
 > Exercise from OpenClassrooms > Apprenez à programmer en Java > Prenez en main la programmation orientée objet > [Ecrivez votre première classe](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java/8440280-ecrivez-votre-premiere-classe)
 >
 > Create a `Bloc` class with private `length`, `width` and `height` properties and `getters`
+
+### ✅ Extends previous object
+
+> Exercise from OpenClassrooms > Apprenez à programmer en Java > Prenez en main la programmation orientée objet > [Implémentez l'héritage](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java/8440662-implementez-l-heritage)
+>
+> Make `Bloc` an _abstract class_ and create 2 extended classes with their own properties `Mur` and `Porte`.

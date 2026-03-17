@@ -1,10 +1,10 @@
 package ej;
 
-public class Bloc {
+public abstract class Bloc {
     
-    private int longueur;
-    private int largeur;
-    private int hauteur;
+    protected int longueur;
+    protected int largeur;
+    protected int hauteur;
     
     public Bloc(final int longueur, final int largeur, final int hauteur) {
         this.longueur = longueur;
@@ -12,15 +12,17 @@ public class Bloc {
         this.hauteur = hauteur;
     }
     
-    int getLongueur(){
+    public int getLongueur(){
         return this.longueur;
     }
     
-    int getLargeur(){
+    public int getLargeur(){
         return this.largeur;
     }
     
-    int getHauteur(){
+    public int getHauteur(){
         return this.hauteur;
     }
+    
+    public abstract boolean canPass();
 }

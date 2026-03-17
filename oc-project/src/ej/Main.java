@@ -2,27 +2,32 @@ package ej;
 
 public class Main {
     public static void main(String[] args) {
-        Bloc exampleBloc0 = new Bloc(4, 2, 1);
-        Bloc exampleBloc1 = new Bloc(40, 20, 10);
+        Bloc blocMur = new Mur(2,2,2,true);
+        Bloc blocPorte = new Porte(0,1,2,false);
+        Mur murPorteur = new Mur(2,2,2,true);
+        Porte porteFermee = new Porte(0,1,2,true);
+        Mur murNonPorteur = new Mur(2,2,2,false);
+        Porte porteOuverte = new Porte(0,1,2,false);
         
         System.out.println(
-            "J'ai créé un premier bloc de dimension (L = " + 
-            exampleBloc0.getLongueur() +
-            " x l = " +
-            exampleBloc0.getLargeur() +
-            " x h = " +
-            exampleBloc0.getHauteur() +
-            ")"
+            "En tant que type Bloc, je sais juste les dimensions du Mur : " +
+            blocMur.getLongueur() + "x" +
+            blocMur.getLargeur() + "x" +
+            blocMur.getHauteur() +
+            "(overridé par la classe Mur, donc affecte l'instance - hauteur = hauteur*10). Mais je ne sais pas si il est franchissable ou non. Seule la méthode abstraite canPass() peut me permettre de dire si je peux passer ou non = " +
+            blocMur.canPass()
         );
-        
         System.out.println(
-            "J'ai créé un second bloc de dimension (L = " + 
-            exampleBloc1.getLongueur() +
-            " x l = " +
-            exampleBloc1.getLargeur() +
-            " x h = " +
-            exampleBloc1.getHauteur() +
-            ")"
+            "En tant que type Bloc, je sais juste les dimensions de la Porte : " +
+            blocPorte.getLongueur() + "x" +
+            blocPorte.getLargeur() + "x" +
+            blocPorte.getHauteur() +
+            ". Mais je ne sais pas si elle est franchissable ou non. Seule la méthode abstraite canPass() peut me permettre de dire si je peux passer ou non = " +
+            blocPorte.canPass()
         );
+        System.out.println(murPorteur.estTraversable());
+        System.out.println(porteFermee.estVerouillee());
+        System.out.println(murNonPorteur.estTraversable());
+        System.out.println(porteOuverte.estVerouillee());
     }
 }
