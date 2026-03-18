@@ -9,7 +9,7 @@ Following the course, neither _Maven_ nor _Gradle_ is used for the project. Ever
 ### Compile
 
 ```bash
-javac -d bin src/ej/Main.java src/ej/Bloc.java src/ej/Mur.java src/ej/Porte.java src/ej/Couleur.java
+javac -d bin src/ej/Main.java src/ej/Bloc.java src/ej/Mur.java src/ej/Porte.java src/ej/Couleur.java src/ej/Kit.java src/ej/IBloc.java
 ```
 
 ### Execute
@@ -37,3 +37,9 @@ java -cp bin ej.Main
 > Exercise from OpenClassrooms > Apprenez à programmer en Java > Prenez en main la programmation orientée objet > [Optimisez votre code avec des classes particulières](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java/8441076-optimisez-votre-code-avec-des-classes-particulieres)
 >
 > Implementing a colour parameter with default for each object
+
+### ✅ Create a collection
+
+> Exercise from OpenClassrooms > Apprenez à programmer en Java > Prenez en main la programmation orientée objet > [Rassemblez vos données à l’aide des collections](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java/8441614-rassemblez-vos-donnees-a-l-aide-des-collections)
+>
+> Implementing a collection of blocs and keywords into a `Kit` object. Implementing interface IBloc.

@@ -9,16 +9,22 @@ public class Porte extends Bloc {
         this.couleur = Couleur.BLEU;
     }
     
-    public boolean estVerouillee() {
+    public boolean estVerrouillee() {
         return this.verrouillee;
     }
     
-    public void setVerouillee(boolean verouillee) {
+    public void setVerrouillee(boolean verouillee) {
         this.verrouillee = verouillee;
     }
     
     @Override
     public boolean canPass() {
         return !this.verrouillee;
+    }
+    
+    @Override
+    public void afficherDescription() {
+        String verrouilleeStr = this.verrouillee ? "est" : "n'est pas";
+        System.out.println(String.format("Cette porte mesure %d x %d x %d et %s verrouillée.", this.longueur, this.largeur, this.hauteur, verrouilleeStr));
     }
 }

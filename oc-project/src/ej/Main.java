@@ -26,9 +26,9 @@ public class Main {
             blocPorte.canPass()
         );
         System.out.println(murPorteur.estTraversable());
-        System.out.println(porteFermee.estVerouillee());
+        System.out.println(porteFermee.estVerrouillee());
         System.out.println(murNonPorteur.estTraversable());
-        System.out.println(porteOuverte.estVerouillee());
+        System.out.println(porteOuverte.estVerrouillee());
         
         System.out.println("Ma porte est : " + porteOuverte.getCouleur());
         System.out.println("Mon mur est Porteur est : " + murPorteur.getCouleur());
@@ -36,5 +36,8 @@ public class Main {
         
         murNonPorteur.setCouleur(Couleur.VERT);
         System.out.println("J'ai repeint mon mur non porteur en : " + murNonPorteur.getCouleur());
+        
+        Kit kitDeDemarrage = new Kit();
+        kitDeDemarrage.afficherKit();
     }
 }

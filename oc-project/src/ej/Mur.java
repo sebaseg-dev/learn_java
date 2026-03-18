@@ -22,4 +22,10 @@ public class Mur extends Bloc {
     public boolean canPass() {
         return this.estTraversable();
     }
+    
+    @Override
+    public void afficherDescription() {
+        String porteurStr = this.porteur ? "est" : "n'est pas";
+        System.out.println(String.format("Ce mur mesure %d x %d x %d et %s porteur.", this.longueur, this.largeur, this.hauteur, porteurStr));
+    }
 }
