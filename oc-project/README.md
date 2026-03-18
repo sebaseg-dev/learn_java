@@ -9,7 +9,7 @@ Following the course, neither _Maven_ nor _Gradle_ is used for the project. Ever
 ### Compile
 
 ```bash
-javac -d bin src/ej/Main.java src/ej/Bloc.java src/ej/Mur.java src/ej/Porte.java src/ej/Couleur.java src/ej/Kit.java src/ej/IBloc.java
+javac -d bin src/ej/Main.java src/ej/Bloc.java src/ej/Mur.java src/ej/Porte.java src/ej/Couleur.java src/ej/Kit.java src/ej/IBloc.java src/ej/PorteVerrouilleeException.java
 ```
 
 ### Execute
@@ -43,3 +43,9 @@ java -cp bin ej.Main
 > Exercise from OpenClassrooms > Apprenez à programmer en Java > Prenez en main la programmation orientée objet > [Rassemblez vos données à l’aide des collections](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java/8441614-rassemblez-vos-donnees-a-l-aide-des-collections)
 >
 > Implementing a collection of blocs and keywords into a `Kit` object. Implementing interface IBloc.
+
+### ✅ Implementing Exceptions
+
+> Exercise from OpenClassrooms > Apprenez à programmer en Java > Prenez en main la programmation orientée objet > [Gérez les exceptions](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java/8441937-gerez-les-exceptions)
+>
+> Implementing Exceptions to throw errors when trying to lock an already locked door.

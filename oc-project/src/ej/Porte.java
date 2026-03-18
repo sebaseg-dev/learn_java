@@ -27,4 +27,12 @@ public class Porte extends Bloc {
         String verrouilleeStr = this.verrouillee ? "est" : "n'est pas";
         System.out.println(String.format("Cette porte mesure %d x %d x %d et %s verrouillée.", this.longueur, this.largeur, this.hauteur, verrouilleeStr));
     }
+    
+    public void verrouiller() throws PorteVerrouilleeException {
+        if(this.verrouillee) {
+            throw new PorteVerrouilleeException("Action impossible: la porte est déjà verrouillée!");
+        } else {
+            this.verrouillee = true;
+        }
+    }
 }

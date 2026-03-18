@@ -39,5 +39,24 @@ public class Main {
         
         Kit kitDeDemarrage = new Kit();
         kitDeDemarrage.afficherKit();
+        
+        Porte porteDeverrouillee = new Porte(1, 1, 1, false);
+        Porte porteVerrouillee = new Porte(1, 1, 1, true);
+        System.out.println("\nEXERCICE sur les Exceptions");
+        
+        try {
+            System.out.println("Je verrouille une porte déverouillée");   
+            System.out.println("Est-ce qu'à l'instanciation la porte est verrouillée ? Réponse : " + porteDeverrouillee.estVerrouillee());
+            porteDeverrouillee.verrouiller();
+            System.out.println("La porte est maintenant verrouillée : " + porteDeverrouillee.estVerrouillee());
+        } catch (PorteVerrouilleeException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        try {
+            porteVerrouillee.verrouiller();
+        } catch (PorteVerrouilleeException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
