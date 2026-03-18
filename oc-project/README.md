@@ -9,7 +9,7 @@ Following the course, neither _Maven_ nor _Gradle_ is used for the project. Ever
 ### Compile
 
 ```bash
-javac -d bin src/ej/Main.java src/ej/Bloc.java src/ej/Mur.java src/ej/Porte.java src/ej/Couleur.java src/ej/Kit.java src/ej/IBloc.java src/ej/PorteVerrouilleeException.java
+javac -d bin src/ej/*.java
 ```
 
 ### Execute
