@@ -1,4 +1,4 @@
-package ej;
+package ej.blocs;
 
 public interface IBloc {
     int MIN_LONGUEUR = 1;

@@ -9,13 +9,13 @@ Following the course, neither _Maven_ nor _Gradle_ is used for the project. Ever
 ### Compile
 
 ```bash
-javac -cp "lib/*" -proc:none -d bin src/ej/*.java
+javac -cp "lib/*" -proc:none -d bin src/**/*.java
 ```
 
 ### Execute
 
 ```bash
-java -cp "bin:lib/*" ej.Main
+java -cp "bin:src:lib/*" ej.Main
 ```
 
 ## Exercises
@@ -49,3 +49,9 @@ java -cp "bin:lib/*" ej.Main
 > Exercise from OpenClassrooms > Apprenez à programmer en Java > Prenez en main la programmation orientée objet > [Gérez les exceptions](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java/8441937-gerez-les-exceptions)
 >
 > Implementing Exceptions to throw errors when trying to lock an already locked door.
+
+### ✅ Using Log4J
+
+> Exercise from OpenClassrooms > Apprenez à programmer en Java > Approfondissez votre maîtrise de Java > [Appliquez le logging à votre code](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java/8442187-appliquez-le-logging-a-votre-code)
+>
+> Reorganising packages and using Apache Log4J to log errors when an Exception is thrown and to log info when a bloc is instanciated with its type

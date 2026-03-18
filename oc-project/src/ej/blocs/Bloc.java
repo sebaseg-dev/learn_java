@@ -1,4 +1,7 @@
-package ej;
+package ej.blocs;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public abstract class Bloc implements IBloc {
     
@@ -7,10 +10,14 @@ public abstract class Bloc implements IBloc {
     protected int hauteur;
     protected Couleur couleur;
     
+    private static Logger logger = LogManager.getLogger(Bloc.class);
+    
     public Bloc(final int longueur, final int largeur, final int hauteur) {
         this.longueur = longueur;
         this.largeur = largeur;
         this.hauteur = hauteur;
+        
+        logger.info("Bloc créé: type de bloc = {}", this.getClass().getSimpleName());
     }
     
     public int getLongueur(){

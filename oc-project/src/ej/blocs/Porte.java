@@ -1,6 +1,13 @@
-package ej;
+package ej.blocs;
+
+import ej.PorteVerrouilleeException;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Porte extends Bloc {
+    private static final Logger logger = LogManager.getLogger(Porte.class);
+    
     private boolean verrouillee;
     
     public Porte(final int longueur, final int largeur, final int hauteur, boolean verrouillee) {
@@ -30,6 +37,7 @@ public class Porte extends Bloc {
     
     public void verrouiller() throws PorteVerrouilleeException {
         if(this.verrouillee) {
+            logger.error("Action impossible: la porte est déjà verrouillée!");
             throw new PorteVerrouilleeException("Action impossible: la porte est déjà verrouillée!");
         } else {
             this.verrouillee = true;

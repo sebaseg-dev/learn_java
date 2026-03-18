@@ -5,6 +5,8 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import ej.blocs.*;
+
 public class Kit {
     private List<IBloc> blocs = new ArrayList<>();
     private Set<String> motClefs = new LinkedHashSet<>();

@@ -1,6 +1,8 @@
 package ej;
 
-public class Main {
+import ej.blocs.*;
+
+public class Main {    
     public static void main(String[] args) {
         Bloc blocMur = new Mur(2,2,2,true);
         Bloc blocPorte = new Porte(0,1,2,false);
