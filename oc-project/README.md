@@ -9,13 +9,13 @@ Following the course, neither _Maven_ nor _Gradle_ is used for the project. Ever
 ### Compile
 
 ```bash
-javac -d bin src/ej/*.java
+javac -cp "lib/*" -proc:none -d bin src/ej/*.java
 ```
 
 ### Execute
 
 ```bash
-java -cp bin ej.Main
+java -cp "bin:lib/*" ej.Main
 ```
 
 ## Exercises
