@@ -17,6 +17,12 @@ public abstract class Bloc implements IBloc {
         this.largeur = largeur;
         this.hauteur = hauteur;
         
+        try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			logger.error("Problème lors de la construction du bloc");
+		}
+        
         logger.info("Bloc créé: type de bloc = {}", this.getClass().getSimpleName());
     }
     

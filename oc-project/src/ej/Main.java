@@ -4,10 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import java.util.List;
+
 import ej.blocs.*;
 
 public class Main {    
     public static void main(String[] args) {
+        System.out.println("\n!!!!!!!!\n!!!!WARNING: Thread sleep has been introduced to simulate long tasks in order to work with threads in the final exercise!!!!\n!!!!!!!!\n");
+        
         Bloc blocMur = new Mur(2,2,2,true);
         Bloc blocPorte = new Porte(0,1,2,false);
         Mur murPorteur = new Mur(2,2,2,true);
@@ -103,5 +107,16 @@ public class Main {
         });
         System.out.println("Ma porte est verrouillée : " + porteVerrou.estVerrouillee());
         
+        System.out.println("\nEXERCICE sur les Threads");
+        System.out.println("Starting creating 10 blocs sequentially...");
+        long sequentialStartTime = System.currentTimeMillis();
+        List<IBloc> sequentialWalls = Fabrique.creerMurSequentiel(10);
+        long sequentialStopTime = System.currentTimeMillis();
+        System.out.println("Sequential creation took " + (sequentialStopTime - sequentialStartTime) + "ms");
+        System.out.println("Starting creating 10 blocs using virtual threads...");
+        long concurrentStartTime = System.currentTimeMillis();
+        List<IBloc> concurrentWalls = Fabrique.creerMur(10);
+        long concurrentStopTime = System.currentTimeMillis();
+        System.out.println("Concurrent creation took " + (concurrentStopTime - concurrentStartTime) + "ms");
     }
 }
