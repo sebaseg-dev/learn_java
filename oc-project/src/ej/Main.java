@@ -93,5 +93,15 @@ public class Main {
                 break;
         }
         
+        System.out.println("\nEXERCICE sur les Lambda");
+        kit.afficherIdeesWithLambda();
+        System.out.println("J'instancie une porte verrouillée:");
+        Porte porteVerrou = new Porte(1, 1, 1, true);
+        System.out.println("Ma porte est verrouillée : " + porteVerrou.estVerrouillee());
+        porteVerrou.forcerSerrure((cle) -> {
+            return cle == "Password123";
+        });
+        System.out.println("Ma porte est verrouillée : " + porteVerrou.estVerrouillee());
+        
     }
 }

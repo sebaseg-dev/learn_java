@@ -40,6 +40,10 @@ public class Kit {
         }
     }
     
+    public void afficherIdeesWithLambda() {
+        this.motClefs.forEach(System.out::println);
+    }
+    
     public void afficherBlocsParType() {
         Map<String, Integer> blocsParType = new HashMap<>();
         for(IBloc bloc : this.blocs) {

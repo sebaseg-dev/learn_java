@@ -61,3 +61,9 @@ java -cp "bin:src:lib/*" ej.Main
 > Exercise from OpenClassrooms > Apprenez à programmer en Java > Approfondissez votre maîtrise de Java > [Utilisez les flux en Java](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java/8442516-utilisez-les-flux-en-java)
 >
 > Asking the user an input to display one out of two kind of information. I adapt my code rather than cloning course's repo.
+
+### ✅ Lambda
+
+> Exercise from OpenClassrooms > Apprenez à programmer en Java > Approfondissez votre maîtrise de Java > [Allégez l'écriture de votre code grâce au Lambda](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java/8442795-allegez-l-ecriture-de-votre-code-grace-au-lambda)
+>
+> Identify iterations made upon collections (I will refactor `afficherIdees()` only), enlighten it with lambda writing and implement `forcerSerrure()

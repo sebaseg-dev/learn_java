@@ -4,6 +4,7 @@ import ej.PorteVerrouilleeException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import java.util.function.Predicate;
 
 public class Porte extends Bloc {
     private static final Logger logger = LogManager.getLogger(Porte.class);
@@ -41,6 +42,16 @@ public class Porte extends Bloc {
             throw new PorteVerrouilleeException("Action impossible: la porte est déjà verrouillée!");
         } else {
             this.verrouillee = true;
+        }
+    }
+    
+    public void forcerSerrure(Predicate<String> fonction) {
+        String secret = "Password123";
+        
+        if(this.verrouillee) {
+            if(fonction.test(secret)) {
+                this.verrouillee = false;
+            }
         }
     }
 }
