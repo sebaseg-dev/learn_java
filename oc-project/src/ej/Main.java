@@ -1,5 +1,9 @@
 package ej;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import ej.blocs.*;
 
 public class Main {    
@@ -60,5 +64,34 @@ public class Main {
         } catch (PorteVerrouilleeException e) {
             System.out.println(e.getMessage());
         }
+        
+        System.out.println("\nEXERCICE sur les Streams");
+        Kit kit = new Kit();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        
+        int choix = 0;
+        
+        do {
+            try {
+                System.out.println("Que souhaitez-vous afficher ?\n1 - Les idées de constructions.\n2 - Le nombre de blocs pour chaque type de blocs présent dans le kit");
+                String input = reader.readLine();
+                choix = Integer.parseInt(input);
+            } catch (NumberFormatException | IOException e) {
+                choix = 0;
+                System.out.println("\nChoix invalide. Veuillez entrer 1 ou 2.\n");
+            }
+        } while(choix < 1 || choix > 2);
+        
+        switch(choix) {
+            case 1:
+                System.out.println("Les idées de constructions : ");
+                kit.afficherIdees();
+                break;
+            case 2:
+                System.out.println("Le nombre de blocs pour chaque type de blocs présent dans le kit : ");
+                kit.afficherBlocsParType();
+                break;
+        }
+        
     }
 }

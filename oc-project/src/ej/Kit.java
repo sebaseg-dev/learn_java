@@ -3,7 +3,9 @@ package ej;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.HashMap;
 
 import ej.blocs.*;
 
@@ -30,5 +32,22 @@ public class Kit {
         }
         
         System.out.println("Ils peuvent permettre de construire : " + String.join(", ", motClefs));
+    }
+    
+    public void afficherIdees() {
+        for(String mot : this.motClefs) {
+            System.out.println(mot);
+        }
+    }
+    
+    public void afficherBlocsParType() {
+        Map<String, Integer> blocsParType = new HashMap<>();
+        for(IBloc bloc : this.blocs) {
+            String type = bloc.getClass().getSimpleName();
+            blocsParType.put(type, blocsParType.getOrDefault(type, 0) + 1);
+        }
+        for(Map.Entry<String, Integer> entry : blocsParType.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
     }
 }

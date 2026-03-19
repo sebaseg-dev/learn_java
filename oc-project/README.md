@@ -55,3 +55,9 @@ java -cp "bin:src:lib/*" ej.Main
 > Exercise from OpenClassrooms > Apprenez à programmer en Java > Approfondissez votre maîtrise de Java > [Appliquez le logging à votre code](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java/8442187-appliquez-le-logging-a-votre-code)
 >
 > Reorganising packages and using Apache Log4J to log errors when an Exception is thrown and to log info when a bloc is instanciated with its type
+
+### ✅ Streams (BufferedReader)
+
+> Exercise from OpenClassrooms > Apprenez à programmer en Java > Approfondissez votre maîtrise de Java > [Utilisez les flux en Java](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java/8442516-utilisez-les-flux-en-java)
+>
+> Asking the user an input to display one out of two kind of information. I adapt my code rather than cloning course's repo.
