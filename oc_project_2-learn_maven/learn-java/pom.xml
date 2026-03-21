@@ -28,6 +28,31 @@
     </dependencies>
   </dependencyManagement>
 
+  <profiles>
+    <profile>
+      <id>test</id>
+      <build>
+        <resources>
+          <resource>
+            <directory>src/main/resources/conf-test</directory>
+            <filtering>true</filtering>
+          </resource>
+        </resources>
+      </build>
+    </profile>
+    <profile>
+      <id>prod</id>
+      <build>
+        <resources>
+          <resource>
+            <directory>src/main/resources/conf-prod</directory>
+            <filtering>true</filtering>
+          </resource>
+        </resources>
+      </build>
+    </profile>
+  </profiles>
+
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -41,6 +66,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
@@ -86,5 +112,18 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.4.2</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <mainClass>fr.sebaseg.App</mainClass>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+    </plugins>
   </build>
 </project>

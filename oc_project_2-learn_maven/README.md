@@ -31,3 +31,18 @@ mvn package
 ```bash
 java -cp ./target/learn-java-1.0-SNAPSHOT.jar fr.sebaseg.App
 ```
+
+## Customising the project
+
+We can add in the build process the manifest to declare the main class to run when jar is opened-up.
+
+```bash
+java -jar ./target/learn-java-1.0-SNAPSHOT.jar
+```
+
+We can use resources and profiles to configure build steps. As the course explains, I added a `TEST` and a `PROD` profile with filtered resources to use application's version from the Maven's `pom.xml` into the app itself.
+
+```bash
+mvn package -P <<prod|test>>
+```
+
