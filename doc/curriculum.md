@@ -2,7 +2,7 @@
 
 ## First currciculum planned
 
-While [explaining the context of my learning](../README.md), I drafted a first curriculum to learn Java and Spring.
+While [explaining the context of my learning](./week0.md), I drafted a first curriculum to learn Java and Spring.
 
 ## Week 0 – Resources I already used in my previous learning path
 
