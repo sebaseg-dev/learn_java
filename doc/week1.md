@@ -2,6 +2,8 @@
 
 Week 1 – Introduction to Java
 
+Workload ~20h
+
 ## Let's begin with the beginning
 
 It's time to begin with the first course of the path: [Apprenez à programmer en Java](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java)
