@@ -6,7 +6,7 @@ import java.util.List;
 import fr.sebaseg.cardgame.model.Deck;
 import fr.sebaseg.cardgame.model.Player;
 import fr.sebaseg.cardgame.model.PlayingCard;
-import fr.sebaseg.cardgame.view.View;
+import fr.sebaseg.cardgame.view.GameViewable;
 import fr.sebaseg.cardgame.games.GameEvaluator;
 
 public class GameController {
@@ -18,12 +18,12 @@ public class GameController {
     Deck deck;
     List<Player> players;
     Player winner;
-    View view;
+    GameViewable view;
     
     GameState gameState;
     GameEvaluator evaluator;
     
-    public GameController(Deck deck, View view, GameEvaluator gameEvaluator) {
+    public GameController(Deck deck, GameViewable view, GameEvaluator gameEvaluator) {
         super();
         this.deck = deck;
         this.view = view;
@@ -96,6 +96,18 @@ public class GameController {
     void rebuildDeck() {
         for (Player player : players) {
             deck.returnCardToDeck(player.removeCard());
+        }
+    }
+    
+    void exitGame() {
+        System.exit(0);
+    }
+    
+    public void nextAction(String nextChoice) {
+        if("+q".equals(nextChoice)) {
+            exitGame();
+        } else {
+            startGame();
         }
     }
 }

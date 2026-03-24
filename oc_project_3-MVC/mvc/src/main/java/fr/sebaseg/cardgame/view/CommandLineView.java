@@ -3,8 +3,9 @@ package fr.sebaseg.cardgame.view;
 import java.util.Scanner;
 
 import fr.sebaseg.cardgame.controller.GameController;
+import fr.sebaseg.cardgame.view.GameViewable;
 
-public class View {
+public class CommandLineView implements GameViewable {
     GameController controller;
     Scanner keyboard = new Scanner(System.in);
     
@@ -29,9 +30,8 @@ public class View {
     }
     
     public void promptForNewGame() {
-        System.out.println("Press enter to deal again");
-        keyboard.nextLine();
-        controller.startGame();
+        System.out.println("Press enter to deal again or +q to exit");
+        controller.nextAction(keyboard.nextLine());
     }
     
     public void showWinner(String playerName) {
