@@ -112,6 +112,8 @@ public class GameController {
                 bestRank = pc.getRank().value();
                 bestSuit = pc.getSuit().value();
             }
+            
+            winner = bestPlayer;
         }
         
     }
