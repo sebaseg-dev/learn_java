@@ -13,7 +13,7 @@ To build and launch the application, run the following commands:
 ```bash
 cd ./mvc
 mvn package
-java -cp target/mvc-1.0-SNAPSHOT.jar fr.sebaseg.App
+java -cp target/mvc-1.0-SNAPSHOT.jar fr.sebaseg.cardgame.App
 ```
 
 ## Game Rules & Features

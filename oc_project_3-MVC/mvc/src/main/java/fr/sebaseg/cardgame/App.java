@@ -1,4 +1,4 @@
-package fr.sebaseg;
+package fr.sebaseg.cardgame;
 
 /**
  * Hello world!
