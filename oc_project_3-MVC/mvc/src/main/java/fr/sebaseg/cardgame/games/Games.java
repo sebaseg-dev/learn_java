@@ -4,6 +4,11 @@ import fr.sebaseg.cardgame.controller.GameController;
 import fr.sebaseg.cardgame.model.DeckFactory;
 import fr.sebaseg.cardgame.view.CommandLineView;
 import fr.sebaseg.cardgame.view.GameSwingView;
+import fr.sebaseg.cardgame.view.GameViewable;
+import fr.sebaseg.cardgame.view.GameViewables;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Games {
     public static void main(String[] args) {
@@ -12,7 +17,17 @@ public class Games {
 
         GameSwingView gsv = new GameSwingView();
         gsv.createAndShowGUI();
-        GameController gc = new GameController(DeckFactory.makeDeck(DeckFactory.DeckType.Normal), gsv, new LowCardGameEvaluator());
+//        GameController gc = new GameController(DeckFactory.makeDeck(DeckFactory.DeckType.Normal), gsv, new LowCardGameEvaluator());
+
+        GameViewables gv = new GameViewables();
+        gv.addViewable(gsv);
+        gv.addViewable(new CommandLineView());
+
+        GameController gc = new GameController(
+                DeckFactory.makeDeck(DeckFactory.DeckType.Normal),
+                gv,
+                new LowCardGameEvaluator()
+        );
         
         gc.run();
     }
