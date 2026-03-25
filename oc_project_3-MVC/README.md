@@ -21,15 +21,15 @@ java -cp target/mvc-1.0-SNAPSHOT.jar fr.sebaseg.cardgame.games.Games
 This is a simple card game with the following logic:
 
 * **Deck:** Uses a standard 52-card deck.
-* **Players:** Supports up to 5 players with custom names.
+* **Players:** Supports up to 5 Players with custom names.
 * **Gameplay:**
     * The deck is **shuffled**.
-    * Each player is dealt a single face-down card.
-    * All players reveal their cards simultaneously.
+    * Each Player is dealt a single face-down card.
+    * All Players reveal their cards simultaneously.
 * **Winning Conditions:**
-    * The winner is the player with the highest card value (**Ace > King > Queen > Jack > 10 > ... > 2**).
+    * The winner is the Player with the highest card value (**Ace > King > Queen > Jack > 10 > ... > 2**).
     * In case of a **tie (draw)**, the suit determines the winner by priority: **Clubs > Spades > Hearts > Diamonds**.
 * **End of Round:**
-    * The app displays the players' names and their respective cards.
+    * The app displays the Players' names and their respective cards.
     * All cards are returned to the deck.
     * The game resets and can be played again with the full deck.

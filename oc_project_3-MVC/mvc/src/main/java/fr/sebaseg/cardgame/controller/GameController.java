@@ -3,21 +3,19 @@ package fr.sebaseg.cardgame.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.sebaseg.cardgame.model.Deck;
-import fr.sebaseg.cardgame.model.Player;
-import fr.sebaseg.cardgame.model.PlayingCard;
+import fr.sebaseg.cardgame.model.*;
 import fr.sebaseg.cardgame.view.GameViewable;
 import fr.sebaseg.cardgame.games.GameEvaluator;
 
 public class GameController {
     
     enum GameState {
-        AddingPlayers, CardsDealt, WinnerRevealed;
+        AddingPlayers, CardsDealt, WinnerRevealed
     }
     
     Deck deck;
-    List<Player> players;
-    Player winner;
+    List<IPlayer> Players;
+    IPlayer winner;
     GameViewable view;
     
     GameState gameState;
@@ -27,7 +25,7 @@ public class GameController {
         super();
         this.deck = deck;
         this.view = view;
-        this.players = new ArrayList<Player>();
+        this.Players = new ArrayList<IPlayer>();
         this.gameState = GameState.AddingPlayers;
         view.setController(this);
         this.evaluator = gameEvaluator;
@@ -50,8 +48,8 @@ public class GameController {
     
     public void addPlayer(String playerName) {
         if (gameState == GameState.AddingPlayers) {
-            players.add(new Player(playerName));
-            view.showPlayerName(players.size(), playerName);
+            Players.add(new Player(playerName));
+            view.showPlayerName(Players.size(), playerName);
         }
     }
     
@@ -59,9 +57,9 @@ public class GameController {
         if (gameState != GameState.CardsDealt) {
             deck.shuffle();
             int playerIndex = 1;
-            for (Player player : players) {
-                player.addCardToHand(deck.removeTopCard());
-                view.showFaceDownCardForPlayer(playerIndex++, player.getName());
+            for (IPlayer Player : Players) {
+                Player.addCardToHand(deck.removeTopCard());
+                view.showFaceDownCardForPlayer(playerIndex++, Player.getName());
             }
             gameState = GameState.CardsDealt;
         }
@@ -70,10 +68,15 @@ public class GameController {
     
     public void flipCards() {
         int playerIndex = 1;
-        for (Player player : players) {
-            PlayingCard pc = player.getCard(0);
+        for (IPlayer Player : Players) {
+            PlayingCard pc = Player.getCard(0);
             pc.flip();
-            view.showCardForPlayer(playerIndex++, player.getName(), pc.getRank().toString(), pc.getSuit().toString());
+            view.showCardForPlayer(
+                    playerIndex++,
+                    Player.getName(),
+                    pc.getRank().toString(),
+                    pc.getSuit().toString()
+            );
         }
         
         evaluateWinner();
@@ -86,7 +89,7 @@ public class GameController {
     }
     
     void evaluateWinner() {
-        winner = evaluator.evaluateWinner(players);
+        winner = new WinningPlayer(evaluator.evaluateWinner(Players));
     }
     
     void displayWinner() {
@@ -94,8 +97,8 @@ public class GameController {
     }
     
     void rebuildDeck() {
-        for (Player player : players) {
-            deck.returnCardToDeck(player.removeCard());
+        for (IPlayer Player : Players) {
+            deck.returnCardToDeck(Player.removeCard());
         }
     }
     

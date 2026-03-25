@@ -2,23 +2,23 @@ package fr.sebaseg.cardgame.games;
 
 import java.util.List;
 
-import fr.sebaseg.cardgame.model.Player;
+import fr.sebaseg.cardgame.model.IPlayer;
 import fr.sebaseg.cardgame.model.PlayingCard;
 
 public class HighCardGameEvaluator implements GameEvaluator {
     @Override
-    public Player evaluateWinner(List<Player> players) {
-        Player bestPlayer = null;
+    public IPlayer evaluateWinner(List<IPlayer> Players) {
+        IPlayer bestPlayer = null;
         int bestRank = -1;
         int bestSuit = -1;
         
-        for (Player player : players) {
+        for (IPlayer Player : Players) {
             boolean newBestPlayer = false;
             
             if (bestPlayer == null) {
                 newBestPlayer = true;
             } else {
-                PlayingCard pc = player.getCard(0);
+                PlayingCard pc = Player.getCard(0);
                 int thisRank = pc.getRank().value();
                 if (thisRank >= bestRank) {
                     if (thisRank > bestRank) {
@@ -32,8 +32,8 @@ public class HighCardGameEvaluator implements GameEvaluator {
             }
             
             if (newBestPlayer) {
-                bestPlayer = player;
-                PlayingCard pc = player.getCard(0);
+                bestPlayer = Player;
+                PlayingCard pc = Player.getCard(0);
                 bestRank = pc.getRank().value();
                 bestSuit = pc.getSuit().value();
             }
