@@ -28,7 +28,6 @@ public class GameViewables implements GameViewable {
     public void promptForPlayerName() {
         for(GameViewable view : views) {
             view.promptForPlayerName();
-            break;
         }
     }
 
@@ -36,7 +35,6 @@ public class GameViewables implements GameViewable {
     public void promptForFlip() {
         for(GameViewable view : views) {
             view.promptForFlip();
-            break;
         }
     }
 
@@ -44,7 +42,6 @@ public class GameViewables implements GameViewable {
     public void promptForNewGame() {
         for(GameViewable view : views) {
             view.promptForNewGame();
-            break;
         }
     }
 

@@ -2,32 +2,32 @@ package fr.sebaseg.cardgame.games;
 
 import fr.sebaseg.cardgame.controller.GameController;
 import fr.sebaseg.cardgame.model.DeckFactory;
-import fr.sebaseg.cardgame.view.CommandLineView;
-import fr.sebaseg.cardgame.view.GameSwingView;
-import fr.sebaseg.cardgame.view.GameViewable;
-import fr.sebaseg.cardgame.view.GameViewables;
-
-import java.util.ArrayList;
-import java.util.List;
+import fr.sebaseg.cardgame.view.*;
 
 public class Games {
     public static void main(String[] args) {
-//         GameController gc = new GameController(DeckFactory.makeDeck(DeckFactory.DeckType.Normal), new CommandLineView(), new HighCardGameEvaluator());
-//         GameController gc = new GameController(DeckFactory.makeDeck(DeckFactory.DeckType.Normal), new CommandLineView(), new LowCardGameEvaluator());
+        GameViewables views = new GameViewables();
 
         GameSwingView gsv = new GameSwingView();
         gsv.createAndShowGUI();
-//        GameController gc = new GameController(DeckFactory.makeDeck(DeckFactory.DeckType.Normal), gsv, new LowCardGameEvaluator());
+        views.addViewable(gsv);
 
-        GameViewables gv = new GameViewables();
-        gv.addViewable(gsv);
-        gv.addViewable(new CommandLineView());
+        for (int i = 0; i < 3; i++){
+            GameSwingPassiveView passiveView = new GameSwingPassiveView();
+            passiveView.createAndShowGUI();
 
-        GameController gc = new GameController(
-                DeckFactory.makeDeck(DeckFactory.DeckType.Normal),
-                gv,
-                new LowCardGameEvaluator()
-        );
+            views.addViewable(passiveView);
+
+            // sleep to move new Swing frame on window
+            try{
+                Thread.sleep(2500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+//        GameController gc = new GameController(new Deck(), new View(), new HighCardGameEvaluator());
+        GameController gc = new GameController(DeckFactory.makeDeck(DeckFactory.DeckType.Normal), views, new LowCardGameEvaluator());
         
         gc.run();
     }
