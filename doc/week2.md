@@ -1,6 +1,6 @@
 # Learning Java – week 2
 
-Week 2 – Going deeper with Java
+Week 2 – Going further with Java
 
 Workload XXh
 

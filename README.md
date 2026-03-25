@@ -23,4 +23,16 @@ Projects:
 - [oc_project_1-learn_java](./oc_project_1-learn_java/README.md)
 - [oc_project_2-learn_maven](./oc_project_2-learn_maven/README.md)
 
-## Week 2
+## Week 2 – Going further with Java
+
+What I did during [week 2](./doc/week2.md).
+
+Courses:
+
+- [x] [4h facile – Écrivez du code Java maintenable avec MVC et SOLID](https://openclassrooms.com/fr/courses/6810956-ecrivez-du-code-java-maintenable-avec-mvc-et-solid)
+- [ ] [10h moyenne – Testez votre code Java pour réaliser des applications de qualité](https://openclassrooms.com/fr/courses/6100311-testez-votre-code-java-pour-realiser-des-applications-de-qualite)
+
+Projects:
+
+- [oc_project_3-MVC](./oc_project_3-MVC/README.md)
+- [indie](./indie/README.md)

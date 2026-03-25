@@ -19,7 +19,7 @@ I am graduated from OpenClassrooms on a JavaScript developer path. I already kne
 
 ## Week 2 – Building my first terminal app with Java
 
-- [ ] [4h facile – Écrivez du code Java maintenable avec MVC et SOLID](https://openclassrooms.com/fr/courses/6810956-ecrivez-du-code-java-maintenable-avec-mvc-et-solid)
+- [x] [4h facile – Écrivez du code Java maintenable avec MVC et SOLID](https://openclassrooms.com/fr/courses/6810956-ecrivez-du-code-java-maintenable-avec-mvc-et-solid)
 - [ ] [10h moyenne – Testez votre code Java pour réaliser des applications de qualité](https://openclassrooms.com/fr/courses/6100311-testez-votre-code-java-pour-realiser-des-applications-de-qualite)
 
 ## Week 3 – Discovering Java Spring Boot
