@@ -19,8 +19,8 @@ public class SimulationService {
 
         BigDecimal socialContribution = socialCalculator.calculate(turnover, activity);
         BigDecimal trainingContribution = trainingContributionCalculator.calculate(turnover, activity);
-        BigDecimal taxDeduction = taxCalculator.calculateDeduction(turnover, activity);
+        BigDecimal taxWithholding = taxCalculator.calculateTaxWithholding(turnover, activity);
 
-        return new SimulationResult(turnover, socialContribution, trainingContribution, taxDeduction);
+        return new SimulationResult(turnover, socialContribution, trainingContribution, taxWithholding);
     }
 }

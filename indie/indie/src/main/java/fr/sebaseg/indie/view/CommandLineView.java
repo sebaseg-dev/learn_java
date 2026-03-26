@@ -44,10 +44,10 @@ public class CommandLineView implements ViewInterface {
     public void showResults(SimulationResult results) {
         Map<String, BigDecimal> data = results.getResults();
         BigDecimal turnover = results.turnover();
-        BigDecimal taxDeduction = data.get("Tax Deduction").setScale(0, RoundingMode.HALF_UP);
+        BigDecimal withholdTaxes = data.get("Withhold taxes").setScale(0, RoundingMode.HALF_UP);
         BigDecimal socialContribution = data.get("Social Contribution").setScale(0, RoundingMode.HALF_UP);
         BigDecimal professionalTrainingContribution = data.get("Professional Training Contribution").setScale(0, RoundingMode.HALF_UP);
-        BigDecimal netIncome = turnover.subtract(taxDeduction).subtract(socialContribution).subtract(professionalTrainingContribution);
+        BigDecimal netIncome = turnover.subtract(withholdTaxes).subtract(socialContribution).subtract(professionalTrainingContribution);
 
         System.out.println("++++++++++++++++SHOW RESULTS+++++++++++++++++");
 
@@ -59,9 +59,9 @@ public class CommandLineView implements ViewInterface {
         System.out.println(border);
         System.out.printf(format, "+ Chiffre d'affaires", String.format("+ %.2f €", turnover));
         System.out.println(border);
-        System.out.printf(format, "- Impôt sur le revenu", String.format("- %.2f €", taxDeduction));
+        System.out.printf(format, "- Impôt sur le revenu", String.format("- %.2f €", withholdTaxes));
         System.out.printf(format, "- Cotisations sociales", String.format("- %.2f €", socialContribution));
-        System.out.printf(format, "- CFP*", String.format("- %.2f €", professionalTrainingContribution));
+        System.out.printf(format, "- CFP (*)", String.format("- %.2f €", professionalTrainingContribution));
         System.out.println(border);
         System.out.printf(format, "= Revenus nets", String.format("= %.2f €", netIncome));
         System.out.println(border);
