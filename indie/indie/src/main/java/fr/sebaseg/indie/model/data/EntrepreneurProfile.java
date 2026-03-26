@@ -11,7 +11,7 @@ public class EntrepreneurProfile {
     EntrepreneurProfile(BusinessActivity activity, boolean hasACRE, boolean hasTaxWithholding, BigDecimal turnover) {
         this.activity = activity;
         this.hasACRE = false;
-        this.hasTaxWithholding = false;
+        this.hasTaxWithholding = true;
         this.turnover = turnover;
     }
 

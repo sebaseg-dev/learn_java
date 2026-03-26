@@ -1,19 +1,21 @@
 package fr.sebaseg.indie.controller;
 
 import fr.sebaseg.indie.model.data.RevenueData;
-import fr.sebaseg.indie.view.CommandLineView;
+import fr.sebaseg.indie.view.ViewInterface;
+
+import java.math.BigDecimal;
 
 public class MainController {
-    private final CommandLineView view;
+    private final ViewInterface view;
 
-    public MainController(CommandLineView view) {
+    public MainController(ViewInterface view) {
         this.view = view;
     }
 
     public void start() {
         view.showWelcomeMessage();
 
-        double revenue = readValidRevenue();
+        BigDecimal revenue = BigDecimal.valueOf(readValidRevenue());
         final RevenueData revenueData = new RevenueData(revenue);
         view.showRevenue(revenueData.getRevenue());
     }

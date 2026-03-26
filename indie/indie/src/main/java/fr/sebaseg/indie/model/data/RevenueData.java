@@ -1,23 +1,29 @@
 package fr.sebaseg.indie.model.data;
 
-public class RevenueData {
-    private double revenue;
+import java.math.BigDecimal;
 
-    public RevenueData(double revenue) {
+public class RevenueData {
+    private BigDecimal revenue;
+
+    public RevenueData(BigDecimal revenue) {
         setRevenue(revenue);
     }
 
-    public double getRevenue() {
+    public BigDecimal getRevenue() {
         return revenue;
     }
 
-    public void setRevenue(double revenue) {
+    public void setRevenue(BigDecimal revenue) {
         validateRevenue(revenue);
         this.revenue = revenue;
     }
 
-    private void validateRevenue(double revenue) {
-        if (revenue < 0 || Double.isNaN(revenue) || Double.isInfinite(revenue)) {
+    private void validateRevenue(BigDecimal revenue) {
+        if (revenue == null) {
+            throw new IllegalArgumentException("Le chiffre d'affaires ne peut pas être nul.");
+        }
+
+        if (revenue.signum() == -1) {
             throw new IllegalArgumentException("Le chiffre d'affaires doit être un nombre positif.");
         }
     }

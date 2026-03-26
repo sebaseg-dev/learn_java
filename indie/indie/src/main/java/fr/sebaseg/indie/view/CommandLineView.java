@@ -1,8 +1,9 @@
 package fr.sebaseg.indie.view;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
-public class CommandLineView {
+public class CommandLineView implements ViewInterface {
     private final Scanner sc = new Scanner(System.in);
 
     public CommandLineView() {
@@ -17,7 +18,7 @@ public class CommandLineView {
         return sc.nextLine();
     }
 
-    public void showRevenue(double revenue) {
+    public void showRevenue(BigDecimal revenue) {
         System.out.println("Le chiffre d'affaires renseigné est de : " + revenue + "€");
     }
 
