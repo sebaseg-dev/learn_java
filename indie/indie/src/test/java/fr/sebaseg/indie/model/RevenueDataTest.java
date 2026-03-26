@@ -1,5 +1,6 @@
 package fr.sebaseg.indie.model;
 
+import fr.sebaseg.indie.model.data.RevenueData;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

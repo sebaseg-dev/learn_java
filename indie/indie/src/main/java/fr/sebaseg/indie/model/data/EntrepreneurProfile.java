@@ -1,4 +1,4 @@
-package fr.sebaseg.indie.model;
+package fr.sebaseg.indie.model.data;
 
 public class EntrepreneurProfile {
     private String activityType;

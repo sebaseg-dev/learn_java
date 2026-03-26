@@ -1,6 +1,6 @@
 package fr.sebaseg.indie.controller;
 
-import fr.sebaseg.indie.model.RevenueData;
+import fr.sebaseg.indie.model.data.RevenueData;
 import fr.sebaseg.indie.view.CommandLineView;
 
 public class MainController {
