@@ -13,9 +13,9 @@ public record SimulationResult(
 
     public Map<String, BigDecimal> getResults(){
         Map<String, BigDecimal> results = new LinkedHashMap<>();
-        results.put("Social", socialContribution);
-        results.put("Professional Training", professionalTrainingContribution);
-        results.put("Tax", taxDeduction);
+        results.put("Social Contribution", socialContribution);
+        results.put("Professional Training Contribution", professionalTrainingContribution);
+        results.put("Tax Deduction", taxDeduction);
         return results;
     }
 }

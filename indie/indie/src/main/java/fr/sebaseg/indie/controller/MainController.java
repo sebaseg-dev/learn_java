@@ -2,6 +2,8 @@ package fr.sebaseg.indie.controller;
 
 import fr.sebaseg.indie.model.data.BusinessActivity;
 import fr.sebaseg.indie.model.data.EntrepreneurProfile;
+import fr.sebaseg.indie.model.service.SimulationResult;
+import fr.sebaseg.indie.model.service.SimulationService;
 import fr.sebaseg.indie.view.ViewInterface;
 
 import java.math.BigDecimal;
@@ -25,6 +27,10 @@ public class MainController {
 
         view.showActivity(profile.getActivity());
         view.showRevenue(profile.getTurnover());
+
+        SimulationResult result = new SimulationService().launchSimulation(profile);
+
+        view.showResults(result);
     }
 
     private BusinessActivity readValidActivity() {

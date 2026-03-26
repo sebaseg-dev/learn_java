@@ -1,8 +1,11 @@
 package fr.sebaseg.indie.view;
 
 import fr.sebaseg.indie.model.data.BusinessActivity;
+import fr.sebaseg.indie.model.service.SimulationResult;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.Map;
 import java.util.Scanner;
 
 public class CommandLineView implements ViewInterface {
@@ -35,6 +38,35 @@ public class CommandLineView implements ViewInterface {
     public String promptForRevenue() {
         System.out.println("Veuillez renseigner votre chiffre d'affaires prévisionnel pour l'année:");
         return sc.nextLine();
+    }
+
+    @Override
+    public void showResults(SimulationResult results) {
+        Map<String, BigDecimal> data = results.getResults();
+        BigDecimal turnover = results.turnover();
+        BigDecimal taxDeduction = data.get("Tax Deduction").setScale(0, RoundingMode.HALF_UP);
+        BigDecimal socialContribution = data.get("Social Contribution").setScale(0, RoundingMode.HALF_UP);
+        BigDecimal professionalTrainingContribution = data.get("Professional Training Contribution").setScale(0, RoundingMode.HALF_UP);
+        BigDecimal netIncome = turnover.subtract(taxDeduction).subtract(socialContribution).subtract(professionalTrainingContribution);
+
+        System.out.println("++++++++++++++++SHOW RESULTS+++++++++++++++++");
+
+        String border = "---------------------------------------------------------";
+        String format = "| %-32s | %18s |%n";
+
+        System.out.println(border);
+        System.out.printf(format, "Poste", "Montant");
+        System.out.println(border);
+        System.out.printf(format, "+ Chiffre d'affaires", String.format("+ %.2f €", turnover));
+        System.out.println(border);
+        System.out.printf(format, "- Impôt sur le revenu", String.format("- %.2f €", taxDeduction));
+        System.out.printf(format, "- Cotisations sociales", String.format("- %.2f €", socialContribution));
+        System.out.printf(format, "- CFP*", String.format("- %.2f €", professionalTrainingContribution));
+        System.out.println(border);
+        System.out.printf(format, "= Revenus nets", String.format("= %.2f €", netIncome));
+        System.out.println(border);
+        System.out.println();
+        System.out.println("(*) CFP = Cotisation à la Formation Professionnelle");
     }
 
     public void showRevenue(BigDecimal revenue) {
