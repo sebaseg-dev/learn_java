@@ -1,5 +1,8 @@
 package fr.sebaseg.indie.controller;
 
+import fr.sebaseg.indie.model.calculators.MicroSocialCalculator;
+import fr.sebaseg.indie.model.calculators.MicroTaxCalculator;
+import fr.sebaseg.indie.model.calculators.ProfessionalTrainingContributionCalculator;
 import fr.sebaseg.indie.model.data.BusinessActivity;
 import fr.sebaseg.indie.model.data.EntrepreneurProfile;
 import fr.sebaseg.indie.model.service.SimulationResult;
@@ -28,7 +31,11 @@ public class MainController {
         view.showActivity(profile.getActivity());
         view.showRevenue(profile.getTurnover());
 
-        SimulationResult result = new SimulationService().launchSimulation(profile);
+        MicroSocialCalculator socialCalculator = new MicroSocialCalculator();
+        MicroTaxCalculator taxCalculator = new MicroTaxCalculator();
+        ProfessionalTrainingContributionCalculator trainingCalculator = new ProfessionalTrainingContributionCalculator();
+
+        SimulationResult result = new SimulationService(socialCalculator, taxCalculator, trainingCalculator).launchSimulation(profile);
 
         view.showResults(result);
     }

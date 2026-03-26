@@ -9,9 +9,19 @@ import fr.sebaseg.indie.model.data.EntrepreneurProfile;
 import java.math.BigDecimal;
 
 public class SimulationService {
-    public final MicroSocialCalculator socialCalculator = new MicroSocialCalculator();
-    public final MicroTaxCalculator taxCalculator = new MicroTaxCalculator();
-    public final ProfessionalTrainingContributionCalculator trainingContributionCalculator = new ProfessionalTrainingContributionCalculator();
+    public final MicroSocialCalculator socialCalculator;
+    public final MicroTaxCalculator microTaxCalculator;
+    public final ProfessionalTrainingContributionCalculator trainingContributionCalculator;
+
+    public SimulationService(
+            MicroSocialCalculator socialCalculator,
+            MicroTaxCalculator microTaxCalculator,
+            ProfessionalTrainingContributionCalculator trainingContributionCalculator
+    ) {
+        this.socialCalculator = socialCalculator;
+        this.microTaxCalculator = microTaxCalculator;
+        this.trainingContributionCalculator = trainingContributionCalculator;
+    }
 
     public SimulationResult launchSimulation(EntrepreneurProfile profile) {
         BigDecimal turnover = profile.getTurnover();
@@ -19,7 +29,7 @@ public class SimulationService {
 
         BigDecimal socialContribution = socialCalculator.calculate(turnover, activity);
         BigDecimal trainingContribution = trainingContributionCalculator.calculate(turnover, activity);
-        BigDecimal taxWithholding = taxCalculator.calculateTaxWithholding(turnover, activity);
+        BigDecimal taxWithholding = microTaxCalculator.calculateTaxWithholding(turnover, activity);
 
         return new SimulationResult(turnover, socialContribution, trainingContribution, taxWithholding);
     }
