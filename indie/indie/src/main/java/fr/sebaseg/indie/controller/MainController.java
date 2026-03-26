@@ -1,6 +1,7 @@
 package fr.sebaseg.indie.controller;
 
-import fr.sebaseg.indie.model.data.RevenueData;
+import fr.sebaseg.indie.model.data.BusinessActivity;
+import fr.sebaseg.indie.model.data.EntrepreneurProfile;
 import fr.sebaseg.indie.view.ViewInterface;
 
 import java.math.BigDecimal;
@@ -15,19 +16,50 @@ public class MainController {
     public void start() {
         view.showWelcomeMessage();
 
-        BigDecimal revenue = BigDecimal.valueOf(readValidRevenue());
-        final RevenueData revenueData = new RevenueData(revenue);
-        view.showRevenue(revenueData.getRevenue());
+        BusinessActivity activity = readValidActivity();
+        boolean hasACRE = false;
+        boolean hasTaxWithholding = true;
+        BigDecimal turnover = readValidTurnover();
+
+        EntrepreneurProfile profile = new EntrepreneurProfile(activity, hasACRE, hasTaxWithholding, turnover);
+
+        view.showActivity(profile.getActivity());
+        view.showRevenue(profile.getTurnover());
     }
 
-    private double readValidRevenue() {
+    private BusinessActivity readValidActivity() {
+        BusinessActivity[] activities = BusinessActivity.values();
+
+        String[] activityNames = new String[activities.length];
+        for (int i = 0; i < activities.length; i++) {
+            activityNames[i] = activities[i].name();
+        }
+
+        while (true) {
+            try {
+                String choiceStr = view.promptForActivity(activityNames);
+                int choice = Integer.parseInt(choiceStr);
+
+                if (choice >= 0 && choice < activities.length) {
+                    return activities[choice];
+                }
+
+                view.showErrorMessage("Veuillez entrer un nombre entre 0 et " + (activities.length - 1));
+            } catch (NumberFormatException e) {
+                view.showErrorMessage("Veuillez saisir un nombre valide.");
+            }
+        }
+
+    }
+
+    private BigDecimal readValidTurnover() {
         while (true) {
             try {
                 String input = view.promptForRevenue();
-                double revenue = Double.parseDouble(input);
+                BigDecimal turnover = new BigDecimal(input);
 
-                if (revenue > 0) {
-                    return revenue;
+                if (turnover.signum() > 0) {
+                    return turnover;
                 }
 
                 view.showErrorMessage("Veuillez saisir une valeur positive.");
