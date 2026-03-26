@@ -14,7 +14,7 @@ public class MicroTaxCalculator {
             case BIC_LISTED_RENTAL -> new BigDecimal("0.5");
             case BIC_NON_LISTED_RENTAL -> new BigDecimal("0.3");
             case BNC -> new BigDecimal("0.34");
-            default -> throw new IllegalArgumentException("MicroTexCalculator => Catégorie micro fiscale inconnue : " + activity.getTaxCategory());
+            default -> throw new IllegalArgumentException("MicroTaxCalculator => Catégorie micro fiscale inconnue : " + activity.getTaxCategory());
         };
     }
 
