@@ -1,8 +1,6 @@
 package fr.sebaseg.indie.controller;
 
-import fr.sebaseg.indie.model.calculators.MicroSocialCalculator;
-import fr.sebaseg.indie.model.calculators.MicroTaxCalculator;
-import fr.sebaseg.indie.model.calculators.ProfessionalTrainingContributionCalculator;
+import fr.sebaseg.indie.model.calculators.CalculatorInterface;
 import fr.sebaseg.indie.model.data.BusinessActivity;
 import fr.sebaseg.indie.model.data.EntrepreneurProfile;
 import fr.sebaseg.indie.model.service.SimulationResult;
@@ -13,9 +11,20 @@ import java.math.BigDecimal;
 
 public class MainController {
     private final ViewInterface view;
+    private final CalculatorInterface taxCalculator;
+    private final CalculatorInterface socialContributionCalculator;
+    private final CalculatorInterface trainingContributionCalculator;
 
-    public MainController(ViewInterface view) {
+    public MainController(
+            ViewInterface view,
+            CalculatorInterface taxCalculator,
+            CalculatorInterface socialContributionCalculator,
+            CalculatorInterface trainingContributionCalculator
+    ) {
         this.view = view;
+        this.taxCalculator = taxCalculator;
+        this.socialContributionCalculator = socialContributionCalculator;
+        this.trainingContributionCalculator = trainingContributionCalculator;
     }
 
     public void start() {
@@ -31,11 +40,7 @@ public class MainController {
         view.showActivity(profile.getActivity());
         view.showRevenue(profile.getTurnover());
 
-        MicroSocialCalculator socialCalculator = new MicroSocialCalculator();
-        MicroTaxCalculator taxCalculator = new MicroTaxCalculator();
-        ProfessionalTrainingContributionCalculator trainingCalculator = new ProfessionalTrainingContributionCalculator();
-
-        SimulationResult result = new SimulationService(socialCalculator, taxCalculator, trainingCalculator).launchSimulation(profile);
+        SimulationResult result = new SimulationService(taxCalculator, socialContributionCalculator, trainingContributionCalculator).launchSimulation(profile);
 
         view.showResults(result);
     }

@@ -4,8 +4,19 @@ import fr.sebaseg.indie.model.data.BusinessActivity;
 
 import java.math.BigDecimal;
 
-public class MicroTaxCalculator {
+public class RevenueTaxCalculator implements CalculatorInterface {
+
     private final BigDecimal MINIMUM_TAX_DEDUCTION = new BigDecimal("305");
+
+    @Override
+    public BigDecimal getRate(BusinessActivity activity) {
+        return new BigDecimal("0");
+    }
+
+    @Override
+    public BigDecimal calculate(BigDecimal turnover, BusinessActivity activity) {
+        return new BigDecimal("0");
+    }
 
     public BigDecimal getDeductionRate(BusinessActivity activity) {
         return switch (activity.getTaxCategory()) {
@@ -22,16 +33,4 @@ public class MicroTaxCalculator {
         return calculatedDeduction.max(MINIMUM_TAX_DEDUCTION);
     }
 
-    public BigDecimal getTaxWithholdingRate(BusinessActivity activity) {
-        return switch (activity.getTaxCategory()) {
-            case BIC_SALES -> new BigDecimal("0.01");
-            case BIC_SERVICES, BIC_LISTED_RENTAL, BIC_NON_LISTED_RENTAL -> new BigDecimal("0.017");
-            case BNC -> new BigDecimal("0.022");
-            default -> throw new IllegalArgumentException("MicroTaxCalculator => Catégorie micro fiscale inconnue : " + activity.getTaxCategory());
-        };
-    }
-
-    public BigDecimal calculateTaxWithholding(BigDecimal turnover, BusinessActivity activity) {
-        return turnover.multiply(getTaxWithholdingRate(activity));
-    }
 }

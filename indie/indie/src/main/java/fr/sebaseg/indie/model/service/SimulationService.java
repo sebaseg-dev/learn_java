@@ -1,25 +1,23 @@
 package fr.sebaseg.indie.model.service;
 
-import fr.sebaseg.indie.model.calculators.MicroSocialCalculator;
-import fr.sebaseg.indie.model.calculators.MicroTaxCalculator;
-import fr.sebaseg.indie.model.calculators.ProfessionalTrainingContributionCalculator;
+import fr.sebaseg.indie.model.calculators.CalculatorInterface;
 import fr.sebaseg.indie.model.data.BusinessActivity;
 import fr.sebaseg.indie.model.data.EntrepreneurProfile;
 
 import java.math.BigDecimal;
 
 public class SimulationService {
-    public final MicroSocialCalculator socialCalculator;
-    public final MicroTaxCalculator microTaxCalculator;
-    public final ProfessionalTrainingContributionCalculator trainingContributionCalculator;
+    private final CalculatorInterface taxCalculator;
+    private final CalculatorInterface socialContributionCalculator;
+    private final CalculatorInterface trainingContributionCalculator;
 
     public SimulationService(
-            MicroSocialCalculator socialCalculator,
-            MicroTaxCalculator microTaxCalculator,
-            ProfessionalTrainingContributionCalculator trainingContributionCalculator
+            CalculatorInterface taxCalculator,
+            CalculatorInterface socialContributionCalculator,
+            CalculatorInterface trainingContributionCalculator
     ) {
-        this.socialCalculator = socialCalculator;
-        this.microTaxCalculator = microTaxCalculator;
+        this.socialContributionCalculator = socialContributionCalculator;
+        this.taxCalculator = taxCalculator;
         this.trainingContributionCalculator = trainingContributionCalculator;
     }
 
@@ -27,9 +25,9 @@ public class SimulationService {
         BigDecimal turnover = profile.getTurnover();
         BusinessActivity activity = profile.getActivity();
 
-        BigDecimal socialContribution = socialCalculator.calculate(turnover, activity);
+        BigDecimal socialContribution = socialContributionCalculator.calculate(turnover, activity);
         BigDecimal trainingContribution = trainingContributionCalculator.calculate(turnover, activity);
-        BigDecimal taxWithholding = microTaxCalculator.calculateTaxWithholding(turnover, activity);
+        BigDecimal taxWithholding = taxCalculator.calculate(turnover, activity);
 
         return new SimulationResult(turnover, socialContribution, trainingContribution, taxWithholding);
     }

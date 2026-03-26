@@ -4,8 +4,9 @@ import fr.sebaseg.indie.model.data.BusinessActivity;
 
 import java.math.BigDecimal;
 
-public class ProfessionalTrainingContributionCalculator {
+public class ProfessionalTrainingContributionCalculator implements CalculatorInterface {
 
+    @Override
     public BigDecimal getRate(BusinessActivity activity) {
         return switch (activity.getProfessionalTrainingContribution()) {
             case SALES -> new BigDecimal("0.001");
@@ -15,7 +16,4 @@ public class ProfessionalTrainingContributionCalculator {
         };
     }
 
-    public BigDecimal calculate(BigDecimal turnover, BusinessActivity activity) {
-        return turnover.multiply(getRate(activity));
-    }
 }

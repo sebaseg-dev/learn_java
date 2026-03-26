@@ -4,8 +4,10 @@ import fr.sebaseg.indie.model.data.BusinessActivity;
 
 import java.math.BigDecimal;
 
-public class MicroSocialCalculator {
-    public BigDecimal getDeductionRate(BusinessActivity activity) {
+public class MicroSocialCalculator implements CalculatorInterface {
+
+    @Override
+    public BigDecimal getRate(BusinessActivity activity) {
         return switch (activity.getSocialCategory()) {
             case SALES -> new BigDecimal("0.123");
             case LISTED_RENTAL -> new BigDecimal("0.06");
@@ -16,7 +18,4 @@ public class MicroSocialCalculator {
         };
     }
 
-    public BigDecimal calculate(BigDecimal turnover, BusinessActivity activity) {
-        return turnover.multiply(getDeductionRate(activity));
-    }
 }
