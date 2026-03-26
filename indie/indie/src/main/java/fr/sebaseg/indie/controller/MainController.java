@@ -1,5 +1,6 @@
 package fr.sebaseg.indie.controller;
 
+import fr.sebaseg.indie.model.calculators.CalculationException;
 import fr.sebaseg.indie.model.calculators.CalculatorInterface;
 import fr.sebaseg.indie.model.data.BusinessActivity;
 import fr.sebaseg.indie.model.data.EntrepreneurProfile;
@@ -30,19 +31,29 @@ public class MainController {
     public void start() {
         view.showWelcomeMessage();
 
-        BusinessActivity activity = readValidActivity();
-        boolean hasACRE = false;
-        boolean hasTaxWithholding = true;
-        BigDecimal turnover = readValidTurnover();
+        while (true) {
+            try {
+                BusinessActivity activity = readValidActivity();
+                boolean hasACRE = false;
+                boolean hasTaxWithholding = true;
+                BigDecimal turnover = readValidTurnover();
 
-        EntrepreneurProfile profile = new EntrepreneurProfile(activity, hasACRE, hasTaxWithholding, turnover);
+                EntrepreneurProfile profile = new EntrepreneurProfile(activity, hasACRE, hasTaxWithholding, turnover);
 
-        view.showActivity(profile.getActivity());
-        view.showRevenue(profile.getTurnover());
+                view.showActivity(profile.getActivity());
+                view.showRevenue(profile.getTurnover());
 
-        SimulationResult result = new SimulationService(taxCalculator, socialContributionCalculator, trainingContributionCalculator).launchSimulation(profile);
+                SimulationResult result = new SimulationService(taxCalculator, socialContributionCalculator, trainingContributionCalculator).launchSimulation(profile);
 
-        view.showResults(result);
+                view.showResults(result);
+            } catch (CalculationException e) {
+                view.showErrorMessage(e.getMessage());
+            } catch (Exception e) {
+                view.showErrorMessage("Erreur inattendue : " + e.getMessage());
+                break;
+            }
+        }
+
     }
 
     private BusinessActivity readValidActivity() {

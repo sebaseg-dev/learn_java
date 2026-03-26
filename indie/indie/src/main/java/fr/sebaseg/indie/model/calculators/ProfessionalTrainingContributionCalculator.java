@@ -12,7 +12,7 @@ public class ProfessionalTrainingContributionCalculator implements CalculatorInt
             case SALES -> new BigDecimal("0.001");
             case ARTISAN -> new BigDecimal("0.003");
             case LIBERAL -> new BigDecimal("0.002");
-            default -> throw new IllegalArgumentException("ProfessionalTrainingContributionCalculator => Catégorie de Contribution à la Formation Professionnelle inconnue : " + activity.getProfessionalTrainingContribution());
+            default -> throw new CalculationException("Le calcul de la contribution à la formation professionnelle pour l'activité " + activity.name() + " n'est pas encore supporté.");
         };
     }
 

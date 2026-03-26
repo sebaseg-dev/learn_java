@@ -24,7 +24,7 @@ public class RevenueTaxCalculator implements CalculatorInterface {
             case BIC_SERVICES, BIC_LISTED_RENTAL -> new BigDecimal("0.5");
             case BIC_NON_LISTED_RENTAL -> new BigDecimal("0.3");
             case BNC -> new BigDecimal("0.34");
-            default -> throw new IllegalArgumentException("MicroTaxCalculator => Catégorie micro fiscale inconnue : " + activity.getTaxCategory());
+            default -> throw new CalculationException("Le calcul de l'impôt sur les revenus pour l'activité " + activity.name() + " n'est pas encore supporté.");
         };
     }
 

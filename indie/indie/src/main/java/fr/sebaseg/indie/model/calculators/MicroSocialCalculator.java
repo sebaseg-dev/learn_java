@@ -14,7 +14,7 @@ public class MicroSocialCalculator implements CalculatorInterface {
             case OTHER_BIC -> new BigDecimal("0.212");
             case UNREGISTERED_LIBERAL -> new BigDecimal("0.256");
             case REGISTERED_LIBERAL -> new BigDecimal("0.232");
-            default -> throw new IllegalArgumentException("MicroSocialCalculator => Catégorie micro sociale inconnue : " + activity.getSocialCategory());
+            default -> throw new CalculationException("Le calcul des cotisations sociales pour l'activité " + activity.name() + " n'est pas encore supporté.");
         };
     }
 
