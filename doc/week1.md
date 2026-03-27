@@ -1,23 +1,40 @@
-# Learning Java – week 1
+# Learning Java – Week 1
 
 Week 1 – Introduction to Java
 
-Workload ~20h
+Workload: ~20h
 
-## Let's begin with the beginning
+## Transitioning to Java
 
-It's time to begin with the first course of the path: [Apprenez à programmer en Java](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java)
+I started with the core Java programming course: [Apprenez à programmer en Java](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java).
 
-## Project management
+Coming from a background in JavaScript (MVC/OOP then React/Functional) and PHP (Symfony/MVC), I found the transition to Java very natural. The core concepts of Object-Oriented Programming (OOP) and Type Safety are familiar, but Java's strictness and "everything is an object" philosophy bring a welcome level of rigor.
 
-I am learning Java using the [Zed editor](https://zed.dev/). Zed isn't a full-blown IDE, nor is it specialized in Java. While [Eclipse](https://eclipseide.org/) is FOSS and I own an [Jetbrains IntelliJ IDEA](https://www.jetbrains.com/fr-fr/idea/download/?section=mac) license—both of which are tailored for Java—I want to avoid becoming IDE-dependent.
+Key technical takeaways:
+- **Strong Typing & Interfaces**: Understanding Java's implementation of interfaces and inheritance was straightforward given my experience with PHP's type system.
+- **Dependency Injection**: My familiarity with Symfony's DI container made it easy to grasp how to structure a Java application using constructor injection for better testability and decoupling.
 
-I love Zed because it’s fast, reliable, and minimalist. I’ve grown tired of the bloated UIs in JetBrains products, where AI shortcuts often interfere with basic typing (like pressing Enter to start a new line only to have a block of code unexpectedly generated).
+## Tooling & Project Management
 
-To manage my workflow, I completed the first part of the [OpenClassrooms' Organisez et packagez une application Java avec Apache Maven course](https://openclassrooms.com/fr/courses/4503526-organisez-et-packagez-une-application-java-avec-apache-maven). Using [Apache Maven](https://maven.apache.org/) ensures a smooth developer experience for organizing, packaging, and compiling my projects directly within Zed.
+I am intentional about my development environment. I am using the [Zed editor](https://zed.dev/) instead of a heavy IDE like IntelliJ IDEA (even though I own a license).
+
+**Why Zed?**
+- **Speed & Focus**: It’s fast and minimalist, preventing "IDE-dependency."
+- **Manual Mastery**: By avoiding bloated UI shortcuts and aggressive AI code generation, I am forced to understand the underlying build processes and syntax.
+
+To manage the lifecycle, I completed the first part of the [Apache Maven course](https://openclassrooms.com/fr/courses/4503526-organisez-et-packagez-une-application-java-avec-apache-maven). Using Maven allows me to:
+- Organize projects following industry standards.
+- Manage external dependencies (like Jackson for JSON).
+- Compile and package applications directly from the terminal or within Zed.
+
+## Achievements
+
+- **Maven Integration**: Successfully set up a multi-module style workflow for various learning exercises.
+- **Dependency Management**: Learned to manage external libraries (like Jackson for JSON parsing) using the Maven lifecycle.
+- **Java Fundamentals**: Mastered core concepts like strong typing, inheritance, and interfaces.
 
 ## Projects:
 
-- [hello-world](./hello-world/README.md) – Simple hello world in console with java
-- [oc_project_1-learn_java](./oc_project_1-learn_java/README.md) – Learning Java with the [Apprenez à programmer en Java](https://openclassrooms.com/fr/courses/8383791-apprenez-a-programmer-en-java) OpenClassrooms' course.
-- [oc_project_2-learn_maven](./oc_project_2-learn_maven/README.md) – Learning Maven with the [Organisez et packagez une application Java avec Apache Maven course](https://openclassrooms.com/fr/courses/4503526-organisez-et-packagez-une-application-java-avec-apache-maven) OpenClassrooms' course.
+- [hello-world](../hello-world/README.md) – Simple Hello World console application.
+- [oc_project_1-learn_java](../oc_project_1-learn_java/README.md) – Core Java exercises from OpenClassrooms.
+- [oc_project_2-learn_maven](../oc_project_2-learn_maven/README.md) – Maven organization and packaging project.
