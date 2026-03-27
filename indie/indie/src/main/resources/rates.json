@@ -1,0 +1,64 @@
+{
+  "microSocialRates": [
+    {
+      "applicableFrom": "2026-01-01",
+      "rates": {
+        "SALES": 0.123,
+        "LISTED_RENTAL": 0.06,
+        "OTHER_BIC": 0.212,
+        "UNREGISTERED_LIBERAL": 0.256,
+        "REGISTERED_LIBERAL": 0.232
+      },
+      "sourceUrl": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000052218738/2026-01-01"
+    },
+    {
+      "applicableFrom": "2025-01-01",
+      "rates": {
+        "SALES": 0.123,
+        "LISTED_RENTAL": 0.06,
+        "OTHER_BIC": 0.212,
+        "UNREGISTERED_LIBERAL": 0.246,
+        "REGISTERED_LIBERAL": 0.232
+      },
+      "sourceUrl": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000049624097/2025-01-01"
+    }
+  ],
+  "microWithholdTaxRates": [
+    {
+      "applicableFrom": "2009-01-01",
+      "rates": {
+        "BIC_SALES": 0.01,
+        "BIC_SERVICES": 0.017,
+        "BIC_LISTED_RENTAL": 0.017,
+        "BIC_NON_LISTED_RENTAL": 0.017,
+        "BNC": 0.022
+      },
+      "sourceUrl": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000020051568/2009-01-01"
+    }
+  ],
+  "professionalTrainingContributionRates": [
+    {
+      "applicableFrom": "2018-01-01",
+      "rates": {
+        "SALES": 0.001,
+        "ARTISAN": 0.003,
+        "LIBERAL": 0.002
+      },
+      "sourceUrl": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000033714298/2018-01-01"
+    }
+  ],
+  "revenueDeductionRates": [
+    {
+      "applicableFrom": "2023-12-31",
+      "rates": {
+        "BIC_SALES": 0.71,
+        "BIC_SERVICES": 0.5,
+        "BIC_LISTED_RENTAL": 0.5,
+        "BIC_NON_LISTED_RENTAL": 0.3,
+        "BNC": 0.34
+      },
+      "minimumTaxDeductionAmount": 305,
+      "sourceUrl": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000048844097/2023-12-31"
+    }
+  ]
+}

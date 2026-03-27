@@ -1,0 +1,85 @@
+package fr.sebaseg.indie.view;
+
+import fr.sebaseg.indie.model.data.BusinessActivity;
+import fr.sebaseg.indie.model.service.SimulationResult;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import java.util.Scanner;
+
+public class CommandLineView implements ViewInterface {
+    private final ResourceBundle messages = ResourceBundle.getBundle("messages", Locale.FRANCE);
+    private final Scanner sc = new Scanner(System.in);
+
+    public CommandLineView() {
+    }
+
+    public void showWelcomeMessage() {
+        System.out.println(messages.getString("welcome"));
+    }
+
+    @Override
+    public String promptForActivity(String[] activities) {
+        System.out.println(messages.getString("askActivityType"));
+        for(int i = 0; i < activities.length; i++) {
+            System.out.println(i + " - " + activities[i]);
+        }
+        return sc.nextLine();
+    }
+
+    @Override
+    public void showActivity(BusinessActivity activity) {
+        System.out.println("L'activité choisie par l'utilisateur est : " + activity.name());
+        System.out.println("Cela correspond à une catégorie d'impôts : " + activity.getTaxCategory());
+        System.out.println("Cela correspond à une catégorie sociale : " + activity.getSocialCategory());
+        System.out.println("Cela correspond à une catégorie CFP : " + activity.getProfessionalTrainingContribution());
+    }
+
+    public String promptForTurnover() {
+        System.out.println(messages.getString("askTurnover"));
+        return sc.nextLine();
+    }
+
+    @Override
+    public void showResults(SimulationResult results) {
+        BigDecimal turnover = results.turnover();
+        BigDecimal withholdTaxes = results.revenueTaxes().setScale(0, RoundingMode.HALF_UP);
+        BigDecimal socialContribution = results.socialContribution().setScale(0, RoundingMode.HALF_UP);
+        BigDecimal professionalTrainingContribution = results.professionalTrainingContribution().setScale(0, RoundingMode.HALF_UP);
+        BigDecimal netIncome = results.netIncome().setScale(0, RoundingMode.HALF_UP);
+
+        System.out.println("++++++++++++++++SHOW RESULTS+++++++++++++++++");
+
+        String border = "---------------------------------------------------------";
+        String format = "| %-32s | %18s |%n";
+
+        System.out.println(border);
+        System.out.printf(format, "Poste", "Montant");
+        System.out.println(border);
+        System.out.printf(format, "+ Chiffre d'affaires", String.format("+ %.2f €", turnover));
+        System.out.println(border);
+        System.out.printf(format, "- Impôt sur le revenu", String.format("- %.2f €", withholdTaxes));
+        System.out.printf(format, "- Cotisations sociales", String.format("- %.2f €", socialContribution));
+        System.out.printf(format, "- CFP (*)", String.format("- %.2f €", professionalTrainingContribution));
+        System.out.println(border);
+        System.out.printf(format, "= Revenus nets", String.format("= %.2f €", netIncome));
+        System.out.println(border);
+        System.out.println();
+        System.out.println("(*) CFP = Cotisation à la Formation Professionnelle");
+    }
+
+    public void showRevenue(BigDecimal revenue) {
+        System.out.println("Le chiffre d'affaires renseigné est de : " + revenue + "€");
+    }
+
+    public void showErrorMessage(String message) {
+        System.out.println(message);
+    }
+
+    @Override
+    public void showGoodbyeMessage() {
+        System.out.println(messages.getString("goodbye"));
+    }
+}
