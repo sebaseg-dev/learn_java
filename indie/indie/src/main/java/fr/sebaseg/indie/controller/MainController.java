@@ -94,7 +94,7 @@ public class MainController {
     private BigDecimal readValidTurnover() {
         while (true) {
             try {
-                String input = view.promptForRevenue();
+                String input = view.promptForTurnover();
                 BigDecimal turnover = new BigDecimal(input);
 
                 if (turnover.signum() > 0) {

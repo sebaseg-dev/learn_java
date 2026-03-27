@@ -10,7 +10,7 @@ public interface ViewInterface {
     String promptForActivity(String[] activities);
     void showActivity(BusinessActivity activity);
     void showRevenue(BigDecimal revenue);
-    String promptForRevenue();
+    String promptForTurnover();
     void showResults(SimulationResult results);
 
     void showErrorMessage(String message);

@@ -5,21 +5,24 @@ import fr.sebaseg.indie.model.service.SimulationResult;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 
 public class CommandLineView implements ViewInterface {
+    private final ResourceBundle messages = ResourceBundle.getBundle("messages", Locale.FRANCE);
     private final Scanner sc = new Scanner(System.in);
 
     public CommandLineView() {
     }
 
     public void showWelcomeMessage() {
-        System.out.println("Welcome to indie v1");
+        System.out.println(messages.getString("welcome"));
     }
 
     @Override
     public String promptForActivity(String[] activities) {
-        System.out.println("Veuillez choisir la catégorie de votre activité parmi les propositions suivantes:");
+        System.out.println(messages.getString("askActivityType"));
         for(int i = 0; i < activities.length; i++) {
             System.out.println(i + " - " + activities[i]);
         }
@@ -34,8 +37,8 @@ public class CommandLineView implements ViewInterface {
         System.out.println("Cela correspond à une catégorie CFP : " + activity.getProfessionalTrainingContribution());
     }
 
-    public String promptForRevenue() {
-        System.out.println("Veuillez renseigner votre chiffre d'affaires prévisionnel pour l'année:");
+    public String promptForTurnover() {
+        System.out.println(messages.getString("askTurnover"));
         return sc.nextLine();
     }
 
@@ -77,6 +80,6 @@ public class CommandLineView implements ViewInterface {
 
     @Override
     public void showGoodbyeMessage() {
-        System.out.println("See you next time!");
+        System.out.println(messages.getString("goodbye"));
     }
 }
