@@ -2,7 +2,7 @@
 
 Week 2 – Architecture & Clean Code
 
-Workload: ~25h
+Workload: ~20h
 
 ## Architecture & SOLID Principles
 
