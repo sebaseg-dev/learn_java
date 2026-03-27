@@ -1,21 +1,32 @@
 package fr.sebaseg.indie.model.service;
 
 import java.math.BigDecimal;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.Objects;
 
 public record SimulationResult(
         BigDecimal turnover,
+        BigDecimal revenueTaxes,
         BigDecimal socialContribution,
         BigDecimal professionalTrainingContribution,
-        BigDecimal revenueTaxes
+        BigDecimal netIncome
 ) {
+    public SimulationResult {
+        Objects.requireNonNull(turnover);
+        Objects.requireNonNull(revenueTaxes);
+        Objects.requireNonNull(socialContribution);
+        Objects.requireNonNull(professionalTrainingContribution);
+        Objects.requireNonNull(netIncome);
 
-    public Map<String, BigDecimal> getResults(){
-        Map<String, BigDecimal> results = new LinkedHashMap<>();
-        results.put("Social Contribution", socialContribution);
-        results.put("Professional Training Contribution", professionalTrainingContribution);
-        results.put("Withhold taxes", revenueTaxes);
-        return results;
+        BigDecimal expectedNetIncome = turnover
+                .subtract(revenueTaxes)
+                .subtract(socialContribution)
+                .subtract(professionalTrainingContribution);
+
+        if (expectedNetIncome.compareTo(netIncome) != 0) {
+            throw new IllegalArgumentException(
+                "Incohérence détectée : le revenu net (" + netIncome +
+                ") ne correspond pas au calcul (CA - Charges = " + expectedNetIncome + ")"
+            );
+        }
     }
 }

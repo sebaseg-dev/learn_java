@@ -11,6 +11,12 @@ import fr.sebaseg.indie.view.ViewInterface;
 import java.math.BigDecimal;
 
 public class MainController {
+    enum APP_STATE {
+        INIT,
+        RUN,
+        STOP
+    }
+
     private final ViewInterface view;
     private final CalculatorInterface taxCalculator;
     private final CalculatorInterface socialContributionCalculator;
@@ -29,9 +35,10 @@ public class MainController {
     }
 
     public void start() {
+        APP_STATE state = APP_STATE.RUN;
         view.showWelcomeMessage();
 
-        while (true) {
+        while (state == APP_STATE.RUN) {
             try {
                 BusinessActivity activity = readValidActivity();
                 boolean hasACRE = false;
@@ -46,6 +53,7 @@ public class MainController {
                 SimulationResult result = new SimulationService(taxCalculator, socialContributionCalculator, trainingContributionCalculator).launchSimulation(profile);
 
                 view.showResults(result);
+                state = APP_STATE.STOP;
             } catch (CalculationException e) {
                 view.showErrorMessage(e.getMessage());
             } catch (Exception e) {
@@ -53,6 +61,8 @@ public class MainController {
                 break;
             }
         }
+
+        view.showGoodbyeMessage();
 
     }
 

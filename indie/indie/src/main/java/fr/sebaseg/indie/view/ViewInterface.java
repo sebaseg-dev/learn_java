@@ -14,4 +14,6 @@ public interface ViewInterface {
     void showResults(SimulationResult results);
 
     void showErrorMessage(String message);
+
+    void showGoodbyeMessage();
 }

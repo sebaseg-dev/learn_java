@@ -5,7 +5,6 @@ import fr.sebaseg.indie.model.service.SimulationResult;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.Map;
 import java.util.Scanner;
 
 public class CommandLineView implements ViewInterface {
@@ -42,12 +41,11 @@ public class CommandLineView implements ViewInterface {
 
     @Override
     public void showResults(SimulationResult results) {
-        Map<String, BigDecimal> data = results.getResults();
         BigDecimal turnover = results.turnover();
-        BigDecimal withholdTaxes = data.get("Withhold taxes").setScale(0, RoundingMode.HALF_UP);
-        BigDecimal socialContribution = data.get("Social Contribution").setScale(0, RoundingMode.HALF_UP);
-        BigDecimal professionalTrainingContribution = data.get("Professional Training Contribution").setScale(0, RoundingMode.HALF_UP);
-        BigDecimal netIncome = turnover.subtract(withholdTaxes).subtract(socialContribution).subtract(professionalTrainingContribution);
+        BigDecimal withholdTaxes = results.revenueTaxes().setScale(0, RoundingMode.HALF_UP);
+        BigDecimal socialContribution = results.socialContribution().setScale(0, RoundingMode.HALF_UP);
+        BigDecimal professionalTrainingContribution = results.professionalTrainingContribution().setScale(0, RoundingMode.HALF_UP);
+        BigDecimal netIncome = results.netIncome().setScale(0, RoundingMode.HALF_UP);
 
         System.out.println("++++++++++++++++SHOW RESULTS+++++++++++++++++");
 
@@ -75,5 +73,10 @@ public class CommandLineView implements ViewInterface {
 
     public void showErrorMessage(String message) {
         System.out.println(message);
+    }
+
+    @Override
+    public void showGoodbyeMessage() {
+        System.out.println("See you next time!");
     }
 }
