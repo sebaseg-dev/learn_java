@@ -2,9 +2,17 @@ package fr.sebaseg.testing;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Calculator {
+    Logger logger = Logger.getLogger(Calculator.class.getName());
+
     public int add(int a, int b) {
+        return a + b;
+    }
+
+    public double add(double a, double b) {
         return a + b;
     }
 
@@ -15,8 +23,9 @@ public class Calculator {
     public void longCalculation() {
         try {
             Thread.sleep(500);
-        } catch (final InterruptedException e) {
-            e.printStackTrace();
+        } catch (InterruptedException e) {
+            logger.log(Level.WARNING, "Interrupted!", e);
+            Thread.currentThread().interrupt();
         }
     }
 
