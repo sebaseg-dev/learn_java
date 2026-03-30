@@ -43,6 +43,10 @@ My learning path is structured to leverage my existing experience in PHP (Symfon
 
 ---
 
+### [Week 3](./doc/week3.md)
+
+---
+
 ## 🛠 Featured Project: [Indie](./indie/README.md)
 
 `indie` is a French freelance tax & social contribution simulator. It serves as the primary laboratory for applying my learning:
