@@ -19,6 +19,10 @@ public class JsonRatesProvider {
         }
     }
 
+    public IncomeTaxScale getLatestIncomeTaxScale() {
+        return config.incomeTaxScales().get(0);
+    }
+
     public BigDecimal getLatestRate(List<RateEntry> entries, String categoryKey) {
         RateEntry latest = entries.get(0);
         return latest.rates().get(categoryKey);

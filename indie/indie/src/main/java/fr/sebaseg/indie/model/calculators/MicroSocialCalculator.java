@@ -5,7 +5,7 @@ import fr.sebaseg.indie.model.data.BusinessActivity;
 
 import java.math.BigDecimal;
 
-public class MicroSocialCalculator implements CalculatorInterface {
+public class MicroSocialCalculator implements FlatTaxCalculator {
     private final JsonRatesProvider ratesProvider;
 
     public MicroSocialCalculator(JsonRatesProvider ratesProvider) {

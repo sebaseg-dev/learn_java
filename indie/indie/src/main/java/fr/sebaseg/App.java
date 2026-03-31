@@ -13,16 +13,19 @@ public class App {
 
         // Model
         JsonRatesProvider ratesProvider = new JsonRatesProvider();
-        CalculatorInterface taxCalculator = new MicroWithholdTaxCalculator(ratesProvider);
-        CalculatorInterface socialContributionCalculator = new MicroSocialCalculator(ratesProvider);
-        CalculatorInterface trainingContributionCalculator = new ProfessionalTrainingContributionCalculator(ratesProvider);
+        FlatTaxCalculator taxCalculator = new MicroWithholdTaxCalculator(ratesProvider);
+        FlatTaxCalculator socialContributionCalculator = new MicroSocialCalculator(ratesProvider);
+        FlatTaxCalculator trainingContributionCalculator = new ProfessionalTrainingContributionCalculator(ratesProvider);
+
+        RevenueTaxCalculator revenueTaxCalculator = new RevenueTaxCalculator(ratesProvider);
 
         // Controller
         MainController controller = new MainController(
                 view,
                 taxCalculator,
                 socialContributionCalculator,
-                trainingContributionCalculator
+                trainingContributionCalculator,
+                revenueTaxCalculator
         );
 
         controller.start();

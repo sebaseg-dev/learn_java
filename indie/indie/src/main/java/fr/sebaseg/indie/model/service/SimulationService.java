@@ -1,20 +1,20 @@
 package fr.sebaseg.indie.model.service;
 
-import fr.sebaseg.indie.model.calculators.CalculatorInterface;
+import fr.sebaseg.indie.model.calculators.FlatTaxCalculator;
 import fr.sebaseg.indie.model.data.BusinessActivity;
 import fr.sebaseg.indie.model.data.EntrepreneurProfile;
 
 import java.math.BigDecimal;
 
 public class SimulationService {
-    private final CalculatorInterface taxCalculator;
-    private final CalculatorInterface socialContributionCalculator;
-    private final CalculatorInterface trainingContributionCalculator;
+    private final FlatTaxCalculator taxCalculator;
+    private final FlatTaxCalculator socialContributionCalculator;
+    private final FlatTaxCalculator trainingContributionCalculator;
 
     public SimulationService(
-            CalculatorInterface taxCalculator,
-            CalculatorInterface socialContributionCalculator,
-            CalculatorInterface trainingContributionCalculator
+            FlatTaxCalculator taxCalculator,
+            FlatTaxCalculator socialContributionCalculator,
+            FlatTaxCalculator trainingContributionCalculator
     ) {
         this.socialContributionCalculator = socialContributionCalculator;
         this.taxCalculator = taxCalculator;
