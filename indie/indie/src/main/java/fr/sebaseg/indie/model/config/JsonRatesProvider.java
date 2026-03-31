@@ -24,7 +24,7 @@ public class JsonRatesProvider {
         return latest.rates().get(categoryKey);
     }
 
-    public BigDecimal getLastestMinimumTaxDeductionAmount(List<RateEntry> entries) {
+    public BigDecimal getLatestMinimumTaxDeductionAmount(List<RateEntry> entries) {
         RateEntry latest = entries.get(0);
         return latest.minimumTaxDeductionAmount();
     }

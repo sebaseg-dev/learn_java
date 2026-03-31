@@ -11,7 +11,7 @@ public class RevenueTaxCalculator implements CalculatorInterface {
 
     public RevenueTaxCalculator(JsonRatesProvider ratesProvider) {
         this.ratesProvider = ratesProvider;
-        this.minimumTaxDeductionAmount = ratesProvider.getLastestMinimumTaxDeductionAmount(ratesProvider.getConfig().revenueDeductionRates());
+        this.minimumTaxDeductionAmount = ratesProvider.getLatestMinimumTaxDeductionAmount(ratesProvider.getConfig().revenueDeductionRates());
     }
 
     @Override
