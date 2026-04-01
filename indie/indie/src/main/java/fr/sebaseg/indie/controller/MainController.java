@@ -54,12 +54,9 @@ public class MainController {
                 view.showActivity(profile.getActivity());
                 view.showRevenue(profile.getTurnover());
 
-                SimulationResult result = new SimulationService(taxCalculator, socialContributionCalculator, trainingContributionCalculator).launchSimulation(profile);
+                SimulationResult result = new SimulationService(taxCalculator, socialContributionCalculator, trainingContributionCalculator, revenueTaxCalculator).launchSimulation(profile);
 
                 view.showResults(result);
-
-                //debug
-                revenueTaxCalculator.calculate(profile.getTurnover(), profile.getActivity());
 
                 state = APP_STATE.STOP;
             } catch (CalculationException e) {

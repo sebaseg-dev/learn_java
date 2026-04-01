@@ -45,29 +45,55 @@ public class CommandLineView implements ViewInterface {
     @Override
     public void showResults(SimulationResult results) {
         BigDecimal turnover = results.turnover();
-        BigDecimal withholdTaxes = results.revenueTaxes().setScale(0, RoundingMode.HALF_UP);
-        BigDecimal socialContribution = results.socialContribution().setScale(0, RoundingMode.HALF_UP);
-        BigDecimal professionalTrainingContribution = results.professionalTrainingContribution().setScale(0, RoundingMode.HALF_UP);
-        BigDecimal netIncome = results.netIncome().setScale(0, RoundingMode.HALF_UP);
+        BigDecimal withholdTaxes = results.taxWithholding().setScale(2, RoundingMode.HALF_UP);
+        BigDecimal revenueTaxes = results.revenueTaxes().setScale(2, RoundingMode.HALF_UP);
+        BigDecimal socialContribution = results.socialContribution().setScale(2, RoundingMode.HALF_UP);
+        BigDecimal professionalTrainingContribution = results.professionalTrainingContribution().setScale(2, RoundingMode.HALF_UP);
+        BigDecimal netIncomeAfterWithholdingTaxes = results.netIncomeAfterWithholdingTaxes().setScale(2, RoundingMode.HALF_UP);
+        BigDecimal netIncomeAfterRevenueTaxes = results.netIncomeAfterRevenueTaxes().setScale(2, RoundingMode.HALF_UP);
 
         System.out.println("++++++++++++++++SHOW RESULTS+++++++++++++++++");
 
-        String border = "---------------------------------------------------------";
-        String format = "| %-32s | %18s |%n";
+        String border = "------------------------------------------------------------------------------";
+        String format = "| %-32s | %18s | %18s |%n";
 
         System.out.println(border);
-        System.out.printf(format, "Poste", "Montant");
+        System.out.printf(format, "Poste", "Option PFL (*)", "Régime standard IR");
         System.out.println(border);
-        System.out.printf(format, "+ Chiffre d'affaires", String.format("+ %.2f €", turnover));
+        System.out.printf(
+                format,
+                "+ Chiffre d'affaires",
+                String.format("+ %,.2f €", turnover),
+                String.format("+ %,.2f €", turnover)
+        );
         System.out.println(border);
-        System.out.printf(format, "- Impôt sur le revenu", String.format("- %.2f €", withholdTaxes));
-        System.out.printf(format, "- Cotisations sociales", String.format("- %.2f €", socialContribution));
-        System.out.printf(format, "- CFP (*)", String.format("- %.2f €", professionalTrainingContribution));
+        System.out.printf(
+                format,
+                "- Impôt sur le revenu",
+                String.format("- %,.2f €", withholdTaxes),
+                String.format("- %,.2f €", revenueTaxes)
+        );
+        System.out.printf(
+                format,
+                "- Cotisations sociales",
+                String.format("- %,.2f €", socialContribution),
+                String.format("- %,.2f €", socialContribution)
+        );
+        System.out.printf(
+                format, "- CFP (**)",
+                String.format("- %,.2f €", professionalTrainingContribution),
+                String.format("- %,.2f €", professionalTrainingContribution)
+        );
         System.out.println(border);
-        System.out.printf(format, "= Revenus nets", String.format("= %.2f €", netIncome));
+        System.out.printf(
+                format, "= Revenus nets",
+                String.format("= %,.2f €", netIncomeAfterWithholdingTaxes),
+                String.format("= %,.2f €", netIncomeAfterRevenueTaxes)
+        );
         System.out.println(border);
         System.out.println();
-        System.out.println("(*) CFP = Cotisation à la Formation Professionnelle");
+        System.out.println("(*) PFV = Option pour le Prélèvement Forfaitaire Libératoire de l'impôt sur le revenu");
+        System.out.println("(**) CFP = Cotisation à la Formation Professionnelle");
     }
 
     public void showRevenue(BigDecimal revenue) {
