@@ -28,6 +28,10 @@ Building on the architectural foundations from Week 2, this week saw "Indie" evo
     - **Flat Tax Option** (*Prélèvement Forfaitaire Libératoire*): A fixed percentage based on turnover.
     - **Standard IR Calculation**: Progressive tax based on the actual tax scale, accounting for activity-specific deductions.
 - **Fiscal Logic**: Integrated deduction rules (e.g., standard 34%, 50%, or 71% abatement depending on the activity) to accurately determine the taxable base before applying the IR scale.
+- **Quality & Coverage**:
+    - **Continuous Integration**: Using **GitHub Actions** to automate the build and test process.
+    - **Code Coverage**: Implemented **JaCoCo** to track code coverage and identify areas for improvement.
+    - **SonarCloud/SonarQube**: Integrated SonarCloud to analyze code quality and identify potential issues.
 
 ## Projects
 

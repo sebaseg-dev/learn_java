@@ -43,6 +43,8 @@ Tax rates and social contribution percentages are not hardcoded. They are stored
     - **Unit Testing**: Leveraging **JUnit 5** and **AssertJ** for expressive and documented business logic verification.
     - **Isolation**: Use of **Mockito** (where applicable) to isolate components and test specific behaviors.
     - **Clean Code**: Strict adherence to SOLID principles and DRY to maintain a professional-grade codebase.
+    - **Code Coverage**: implemented with **Jacoco** to ensure code quality and maintainability.
+    - **Continuous Integration**: Implemented with **GitHub Actions** to automate testing and **SonarQube** for code quality analysis.
 - **Advanced Fiscal Logic**: Implementation of comparative simulation between the "Flat Tax" option (*Prélèvement Forfaitaire*) and the standard progressive tax calculation.
 
 ## Setting Up the Project
@@ -81,7 +83,3 @@ src/main/java/fr/sebaseg/indie/
 │   └── service/      # Higher-level simulation logic & results
 └── view/             # UI interfaces and CLI implementation
 ```
-
-# Dev
-
-Just changing to force a new workflow to be launched
