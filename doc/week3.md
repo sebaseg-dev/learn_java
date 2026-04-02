@@ -2,7 +2,7 @@
 
 Week 3 – Testing & New functionalities for Indie
 
-Workload: ~XXh
+Workload: ~16h
 
 ## Testing
 
@@ -30,7 +30,7 @@ Building on the architectural foundations from Week 2, this week saw "Indie" evo
 - **Fiscal Logic**: Integrated deduction rules (e.g., standard 34%, 50%, or 71% abatement depending on the activity) to accurately determine the taxable base before applying the IR scale.
 - **Quality & Coverage**:
     - **Continuous Integration**: Using **GitHub Actions** to automate the build and test process.
-    - **Code Coverage**: Implemented **JaCoCo** to track code coverage and identify areas for improvement.
+    - **Code Coverage**: Implemented **JaCoCo** to track code coverage and identify areas for improvement. Enhancing coverage.
     - **SonarCloud/SonarQube**: Integrated SonarCloud to analyze code quality and identify potential issues.
 
 ## Projects
