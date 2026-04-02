@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class EntrepreneurProfileTest {
+class EntrepreneurProfileTest {
     EntrepreneurProfile testProfile;
 
     BusinessActivity activity = BusinessActivity.SALES;
@@ -26,24 +26,23 @@ public class EntrepreneurProfileTest {
     }
 
     @Test
-    public void testGetActivity() {
+    void testGetActivity() {
         assertThat(testProfile.getActivity()).isEqualTo(activity);
     }
 
     @Test
-    public void testHasACRE() {
+    void testHasACRE() {
         assertThat(testProfile.hasACRE()).isEqualTo(hasACRE);
     }
 
     @Test
-    public void testHasTaxWithholding() {
+    void testHasTaxWithholding() {
         assertThat(testProfile.hasTaxWithholding()).isEqualTo(hasTaxWithholding);
     }
 
     @Test
-    public void testGetTurnover() {
+    void testGetTurnover() {
         assertThat(testProfile.getTurnover()).isEqualByComparingTo(turnover);
     }
-
 
 }

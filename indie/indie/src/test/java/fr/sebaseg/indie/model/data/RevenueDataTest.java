@@ -7,29 +7,29 @@ import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class RevenueDataTest {
+class RevenueDataTest {
 
     @Test
-    public void testValidRevenue() {
+    void testValidRevenue() {
         RevenueData data = new RevenueData(new BigDecimal("100.0"));
         assertThat(data.getRevenue()).isEqualByComparingTo(new BigDecimal("100.0"));
     }
 
     @Test
-    public void testRevenueZero() {
+    void testRevenueZero() {
         RevenueData data = new RevenueData(new BigDecimal("0.0"));
         assertThat(data.getRevenue()).isEqualByComparingTo(new BigDecimal("0.0"));
     }
 
     @Test
-    public void testSetRevenue() {
+    void testSetRevenue() {
         RevenueData data = new RevenueData(new BigDecimal("100.0"));
         data.setRevenue(new BigDecimal("200.0"));
         assertThat(data.getRevenue()).isEqualByComparingTo(new BigDecimal("200.0"));
     }
 
     @Test
-    public void testInvalidRevenueNegative() {
+    void testInvalidRevenueNegative() {
         BigDecimal negativeRevenue = new BigDecimal("-10.0");
         assertThatThrownBy(() -> new RevenueData(negativeRevenue))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -37,7 +37,7 @@ public class RevenueDataTest {
     }
 
     @Test
-    public void testInvalidRevenueNull() {
+    void testInvalidRevenueNull() {
         assertThatThrownBy(() -> new RevenueData(null))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Le chiffre d'affaires ne peut pas être nul.");

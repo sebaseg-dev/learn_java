@@ -5,7 +5,7 @@ import org.junit.jupiter.params.provider.EnumSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BusinessActivityTest {
+class BusinessActivityTest {
     @ParameterizedTest
     @EnumSource(BusinessActivity.class)
     void eachActivityShouldHaveAllCategoriesDefined(BusinessActivity activity) {
