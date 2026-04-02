@@ -16,28 +16,34 @@ This project demonstrates my commitment to professional Java development practic
 
 ## Architecture & Design Patterns
 
-The project follows a modular architecture to ensure maintainability and extensibility.
+The project follows a modular architecture to ensure maintainability and extensibility, applying several advanced patterns to handle the complexity of French tax laws.
 
 ### 1. MVC Pattern (Model-View-Controller)
 The application is structured into three distinct layers:
-- **Model**: Contains the business logic, data structures (`EntrepreneurProfile`, `BusinessActivity`), and the core calculation engine.
-- **View**: A decoupled interface (`ViewInterface`) currently implemented as a `CommandLineView`, allowing for future UI expansions (Swing, Web, etc.).
+- **Model**: Contains the business logic, data structures (`EntrepreneurProfile`, `BusinessActivity`), and the core calculation engines.
+- **View**: A decoupled interface (`ViewInterface`) currently implemented as a `CommandLineView`, allowing for future UI expansions.
 - **Controller**: The `MainController` orchestrates the flow, handling user input via the View and invoking calculations in the Model.
 
-### 2. Strategy Pattern
-The calculation logic is abstracted through the `CalculatorInterface`. Different calculation strategies (e.g., `MicroSocialCalculator`, `MicroWithholdTaxCalculator`) implement this interface. This allows the simulation engine to remain agnostic of the specific tax rules being applied, facilitating easy updates when French tax laws change.
+### 2. Specialized Calculation Engines
+The architecture separates flat-rate contributions from progressive tax calculations:
+- **Strategy Pattern (`FlatTaxCalculator`)**: Used for social contributions, professional training, and tax withholding. Different strategies (e.g., `MicroSocialCalculator`) implement this interface.
+- **Progressive Tax Engine (`RevenueTaxCalculator`)**: A specialized engine that implements the official French progressive income tax (IR) scale, including dynamic threshold management and activity-specific deductions (34%, 50%, 71%).
 
 ### 3. Dependency Injection
-Objects are composed rather than tightly coupled. For instance, the `MainController` and `SimulationService` receive their required calculators through their constructors. This promotes testability and allows for easy swapping of components (e.g., using mock providers for testing).
+Objects are composed rather than tightly coupled. The `MainController` and `SimulationService` receive their required calculators and providers through their constructors. This promotes testability and allows for easy swapping of components.
 
 ### 4. Data-Driven Configuration
-Tax rates and social contribution percentages are not hardcoded. They are stored in a `rates.json` file and loaded via a `JsonRatesProvider`. This separation of data from logic is a professional standard that makes the application easier to maintain across different fiscal years.
+Tax rates and social contribution percentages are not hardcoded. They are stored in a `rates.json` file and loaded via a `JsonRatesProvider`. This separation of data from logic allows the application to be updated for new fiscal years without modifying the source code.
 
-## Technical Highlights
+## Technical Highlights & Best Practices
 
-- **Financial Precision**: All monetary calculations use `java.math.BigDecimal` to avoid the rounding errors inherent in `double` or `float`.
-- **Robust Type System**: Extensive use of Enums (`BusinessActivity`, `SocialCategory`) to represent complex legal statuses, ensuring type safety and reducing runtime errors.
-- **Error Handling**: Custom exceptions (`CalculationException`) and input validation loops ensure a smooth user experience.
+- **Financial Precision**: All monetary calculations use `java.math.BigDecimal` to avoid rounding errors.
+- **Robust Type System**: Extensive use of Enums (`BusinessActivity`, `SocialCategory`) to ensure type safety and represent complex legal statuses.
+- **Quality Assurance**: 
+    - **Unit Testing**: Leveraging **JUnit 5** and **AssertJ** for expressive and documented business logic verification.
+    - **Isolation**: Use of **Mockito** (where applicable) to isolate components and test specific behaviors.
+    - **Clean Code**: Strict adherence to SOLID principles and DRY to maintain a professional-grade codebase.
+- **Advanced Fiscal Logic**: Implementation of comparative simulation between the "Flat Tax" option (*Prélèvement Forfaitaire*) and the standard progressive tax calculation.
 
 ## Setting Up the Project
 
@@ -69,9 +75,9 @@ Tax rates and social contribution percentages are not hardcoded. They are stored
 src/main/java/fr/sebaseg/indie/
 ├── controller/       # Application flow orchestration
 ├── model/
-│   ├── calculators/  # Calculation strategies (Social, Tax, Training)
-│   ├── config/       # JSON configuration providers
-│   ├── data/         # Core domain entities (Profile, Activity)
-│   └── service/      # Higher-level simulation logic
+│   ├── calculators/  # Tax & Social contribution engines (Strategy Pattern)
+│   ├── config/       # JSON configuration & Rates providers
+│   ├── data/         # Domain entities (Profile, Activity, Revenue)
+│   └── service/      # Higher-level simulation logic & results
 └── view/             # UI interfaces and CLI implementation
 ```

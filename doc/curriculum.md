@@ -23,7 +23,7 @@ I am a graduate of the OpenClassrooms JavaScript Developer path. I am already pr
 
 ## Week 3 – The Spring Ecosystem
 
-- [~] [Testing for Quality Java Applications](https://openclassrooms.com/fr/courses/6100311-testez-votre-code-java-pour-realiser-des-applications-de-qualite)
+- [x] [Testing for Quality Java Applications](https://openclassrooms.com/fr/courses/6100311-testez-votre-code-java-pour-realiser-des-applications-de-qualite)
 - [ ] [Java Application with Spring Boot](https://openclassrooms.com/fr/courses/6900101-creez-une-application-java-avec-spring-boot)
 - [ ] [Spring Data & Persistence](https://openclassrooms.com/fr/courses/6982461-utilisez-spring-data-pour-interagir-avec-vos-bases-de-donnees)
 
