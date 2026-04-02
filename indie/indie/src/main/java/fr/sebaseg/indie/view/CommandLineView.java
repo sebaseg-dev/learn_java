@@ -56,6 +56,7 @@ public class CommandLineView implements ViewInterface {
 
         String border = "------------------------------------------------------------------------------";
         String format = "| %-32s | %18s | %18s |%n";
+        String numberFormat = "- %,.2f €";
 
         System.out.println(border);
         System.out.printf(format, "Poste", "Option PFL (*)", "Régime standard IR");
@@ -63,32 +64,32 @@ public class CommandLineView implements ViewInterface {
         System.out.printf(
                 format,
                 "+ Chiffre d'affaires",
-                String.format("+ %,.2f €", turnover),
-                String.format("+ %,.2f €", turnover)
+                String.format(numberFormat, turnover),
+                String.format(numberFormat, turnover)
         );
         System.out.println(border);
         System.out.printf(
                 format,
                 "- Impôt sur le revenu",
-                String.format("- %,.2f €", withholdTaxes),
-                String.format("- %,.2f €", revenueTaxes)
+                String.format(numberFormat, withholdTaxes),
+                String.format(numberFormat, revenueTaxes)
         );
         System.out.printf(
                 format,
                 "- Cotisations sociales",
-                String.format("- %,.2f €", socialContribution),
-                String.format("- %,.2f €", socialContribution)
+                String.format(numberFormat, socialContribution),
+                String.format(numberFormat, socialContribution)
         );
         System.out.printf(
                 format, "- CFP (**)",
-                String.format("- %,.2f €", professionalTrainingContribution),
-                String.format("- %,.2f €", professionalTrainingContribution)
+                String.format(numberFormat, professionalTrainingContribution),
+                String.format(numberFormat, professionalTrainingContribution)
         );
         System.out.println(border);
         System.out.printf(
                 format, "= Revenus nets",
-                String.format("= %,.2f €", netIncomeAfterWithholdingTaxes),
-                String.format("= %,.2f €", netIncomeAfterRevenueTaxes)
+                String.format(numberFormat, netIncomeAfterWithholdingTaxes),
+                String.format(numberFormat, netIncomeAfterRevenueTaxes)
         );
         System.out.println(border);
         System.out.println();
