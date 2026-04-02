@@ -8,8 +8,11 @@ public class CalculatorServiceImpl implements CalculatorService {
 
     private final Calculator calculator;
 
-    public CalculatorServiceImpl(Calculator calculator) {
+    private SolutionFormatter   solutionFormatter;
+
+    public CalculatorServiceImpl(Calculator calculator, SolutionFormatter solutionFormatter) {
         this.calculator = calculator;
+        this.solutionFormatter = solutionFormatter;
     }
 
     @Override
@@ -21,11 +24,19 @@ public class CalculatorServiceImpl implements CalculatorService {
             case SUBTRACTION -> calculator.sub(calculationModel.getLeftArgument(), calculationModel.getRightArgument());
             case MULTIPLICATION ->
                     calculator.multiply(calculationModel.getLeftArgument(), calculationModel.getRightArgument());
-            case DIVISION -> calculator.divide(calculationModel.getLeftArgument(), calculationModel.getRightArgument());
+            case DIVISION -> {
+                try {
+                    calculator.divide(calculationModel.getLeftArgument(), calculationModel.getRightArgument());
+                } catch (ArithmeticException e) {
+                    throw new IllegalArgumentException("Division by zero is not allowed");
+                }
+                yield calculator.divide(calculationModel.getLeftArgument(), calculationModel.getRightArgument());
+            }
             default -> throw new UnsupportedOperationException("Unsupported calculations");
         };
 
         calculationModel.setSolution(response);
+        calculationModel.setFormattedSolution(solutionFormatter.format(response));
         return calculationModel;
     }
 
