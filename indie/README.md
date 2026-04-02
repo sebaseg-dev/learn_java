@@ -81,3 +81,7 @@ src/main/java/fr/sebaseg/indie/
 │   └── service/      # Higher-level simulation logic & results
 └── view/             # UI interfaces and CLI implementation
 ```
+
+# Dev
+
+Just changing to force a new workflow to be launched
