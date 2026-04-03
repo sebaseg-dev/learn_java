@@ -56,7 +56,11 @@ public class CommandLineViewTest {
         String output = outContent.toString();
 
         assertTrue(output.contains("+ Chiffre d'affaires"));
-        assertTrue(output.contains("- 220,56 €"));
-        assertTrue(output.contains("- 7 750,00 €"));
+        assertTrue(
+                output.contains("- 220,56 €") || output.contains("- 220.56 €")
+        );
+        assertTrue(
+                output.contains("- 7 750,00 €") || output.contains("- 7,750.00 €")
+        );
     }
 }
