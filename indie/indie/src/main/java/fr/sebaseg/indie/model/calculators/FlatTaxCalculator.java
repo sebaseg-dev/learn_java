@@ -4,7 +4,7 @@ import fr.sebaseg.indie.model.data.BusinessActivity;
 
 import java.math.BigDecimal;
 
-public interface CalculatorInterface {
+public interface FlatTaxCalculator {
 
     BigDecimal getRate(BusinessActivity activity);
 

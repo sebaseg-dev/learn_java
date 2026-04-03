@@ -19,7 +19,16 @@ public class EntrepreneurProfile {
         return activity;
     }
 
+    public boolean hasACRE() {
+        return hasACRE;
+    }
+
+    public boolean hasTaxWithholding() {
+        return hasTaxWithholding;
+    }
+
     public BigDecimal getTurnover() {
         return turnover;
     }
+
 }

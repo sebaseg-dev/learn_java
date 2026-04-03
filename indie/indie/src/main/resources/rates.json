@@ -1,4 +1,32 @@
 {
+  "incomeTaxScales": [
+    {
+      "applicableFrom": "2026-01-01",
+      "brackets": [
+        {
+          "limit": 11600,
+          "rate": 0.00
+        },
+        {
+          "limit": 29579,
+          "rate": 0.11
+        },
+        {
+          "limit": 84577,
+          "rate": 0.30
+        },
+        {
+          "limit": 181917,
+          "rate": 0.41
+        },
+        {
+          "limit": null,
+          "rate": 0.45
+        }
+      ],
+      "sourceUrl": "https://www.service-public.gouv.fr/particuliers/vosdroits/F34328"
+    }
+  ],
   "microSocialRates": [
     {
       "applicableFrom": "2026-01-01",

@@ -5,7 +5,7 @@ import fr.sebaseg.indie.model.data.BusinessActivity;
 
 import java.math.BigDecimal;
 
-public class MicroWithholdTaxCalculator implements CalculatorInterface {
+public class MicroWithholdTaxCalculator implements FlatTaxCalculator {
     private final JsonRatesProvider ratesProvider;
 
     public MicroWithholdTaxCalculator(JsonRatesProvider ratesProvider) {

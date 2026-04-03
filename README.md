@@ -9,7 +9,7 @@ My learning path is structured to leverage my existing experience in PHP (Symfon
 - **[Week 0: Strategy & Context](./doc/week0.md)** – Why Java? Market analysis and curriculum design.
 - **[Week 1: Foundations & Tooling](./doc/week1.md)** – Core Java, Maven, and transitioning from PHP/JS.
 - **[Week 2: Clean Code & Architecture](./doc/week2.md)** – MVC, SOLID principles, and the birth of "Indie".
-
+- **[Week 3 – Testing & New functionalities for Indie](./doc/week3.md)**
 ---
 
 ## 📈 Weekly Progress
@@ -37,9 +37,24 @@ My learning path is structured to leverage my existing experience in PHP (Symfon
 - **SOLID Principles in Practice**: Leveraged Dependency Inversion and Single Responsibility to create a maintainable codebase.
 - **Data-Driven Architecture**: Integrated Jackson for JSON configuration, separating business rules (tax rates) from code.
 
-**Courses In Progress:**
+**Courses Completed:**
 - ✅ [Maintainable Code with MVC & SOLID](https://openclassrooms.com/fr/courses/6810956-ecrivez-du-code-java-maintenable-avec-mvc-et-solid)
-- 🏗️ [Testing & Quality Assurance](https://openclassrooms.com/fr/courses/6100311-testez-votre-code-java-pour-realiser-des-applications-de-qualite)
+- ✅ [Testing & Quality Assurance](https://openclassrooms.com/fr/courses/6100311-testez-votre-code-java-pour-realiser-des-applications-de-qualite)
+
+---
+
+### [Week 3 – Testing & Advanced Tax Calculations](./doc/week3.md)
+**Focus:** Mastering Java testing (JUnit, Mockito) and implementing complex fiscal logic in the tax engine.
+
+**Key Achievements:**
+- **Robust Test Strategy**: Deepened the Test Pyramid, JUnit 5, and AssertJ to build a verified and documented codebase.
+- **Advanced Mocks**: Implemented Mockito for component isolation and complex behavior simulation.
+- **Income Tax Engine**: Implemented a progressive IR calculation engine with official French tax brackets.
+- **Fiscal Logic Refinement**: Integrated comparative simulation between Flat Tax and Progressive IR, accounting for activity-specific deductions.
+- **Quality Assurance**: Ensured code coverage and adherence to industry standards by implementing **SonarQube** and its standard quality gates.
+
+**Courses Completed:**
+- ✅ [Testing for Quality Java Applications](https://openclassrooms.com/fr/courses/6100311-testez-votre-code-java-pour-realiser-des-applications-de-qualite)
 
 ---
 

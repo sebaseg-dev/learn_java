@@ -1,7 +1,8 @@
 package fr.sebaseg.indie.controller;
 
 import fr.sebaseg.indie.model.calculators.CalculationException;
-import fr.sebaseg.indie.model.calculators.CalculatorInterface;
+import fr.sebaseg.indie.model.calculators.FlatTaxCalculator;
+import fr.sebaseg.indie.model.calculators.RevenueTaxCalculator;
 import fr.sebaseg.indie.model.data.BusinessActivity;
 import fr.sebaseg.indie.model.data.EntrepreneurProfile;
 import fr.sebaseg.indie.model.service.SimulationResult;
@@ -18,20 +19,23 @@ public class MainController {
     }
 
     private final ViewInterface view;
-    private final CalculatorInterface taxCalculator;
-    private final CalculatorInterface socialContributionCalculator;
-    private final CalculatorInterface trainingContributionCalculator;
+    private final FlatTaxCalculator taxCalculator;
+    private final FlatTaxCalculator socialContributionCalculator;
+    private final FlatTaxCalculator trainingContributionCalculator;
+    private final RevenueTaxCalculator revenueTaxCalculator;
 
     public MainController(
             ViewInterface view,
-            CalculatorInterface taxCalculator,
-            CalculatorInterface socialContributionCalculator,
-            CalculatorInterface trainingContributionCalculator
+            FlatTaxCalculator taxCalculator,
+            FlatTaxCalculator socialContributionCalculator,
+            FlatTaxCalculator trainingContributionCalculator,
+            RevenueTaxCalculator revenueTaxCalculator
     ) {
         this.view = view;
         this.taxCalculator = taxCalculator;
         this.socialContributionCalculator = socialContributionCalculator;
         this.trainingContributionCalculator = trainingContributionCalculator;
+        this.revenueTaxCalculator = revenueTaxCalculator;
     }
 
     public void start() {
@@ -50,9 +54,10 @@ public class MainController {
                 view.showActivity(profile.getActivity());
                 view.showRevenue(profile.getTurnover());
 
-                SimulationResult result = new SimulationService(taxCalculator, socialContributionCalculator, trainingContributionCalculator).launchSimulation(profile);
+                SimulationResult result = new SimulationService(taxCalculator, socialContributionCalculator, trainingContributionCalculator, revenueTaxCalculator).launchSimulation(profile);
 
                 view.showResults(result);
+
                 state = APP_STATE.STOP;
             } catch (CalculationException e) {
                 view.showErrorMessage(e.getMessage());

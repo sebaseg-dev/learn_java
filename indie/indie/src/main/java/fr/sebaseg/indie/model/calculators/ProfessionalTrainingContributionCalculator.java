@@ -5,7 +5,7 @@ import fr.sebaseg.indie.model.data.BusinessActivity;
 
 import java.math.BigDecimal;
 
-public class ProfessionalTrainingContributionCalculator implements CalculatorInterface {
+public class ProfessionalTrainingContributionCalculator implements FlatTaxCalculator {
     private final JsonRatesProvider ratesProvider;
 
     public ProfessionalTrainingContributionCalculator(JsonRatesProvider ratesProvider) {
