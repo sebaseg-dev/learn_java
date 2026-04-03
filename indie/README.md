@@ -91,5 +91,3 @@ src/main/java/fr/sebaseg/indie/
 │   └── service/      # Higher-level simulation logic & results
 └── view/             # UI interfaces and CLI implementation
 ```
-
-force workflow update
