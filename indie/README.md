@@ -2,7 +2,7 @@
 
 [![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-highlight.svg)](https://sonarcloud.io/summary/new_code?id=learn_java-indie)
 
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=learn_java-indie)](https://sonarcloud.io/summary/new_code?id=learn_java-indie)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=learn_java-indie&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=learn_java-indie)
 
 ## Purpose
 
