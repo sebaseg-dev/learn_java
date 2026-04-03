@@ -2,7 +2,7 @@
 
 Week 3 – Testing & New functionalities for Indie
 
-Workload: ~16h
+Workload: ~20h
 
 ## Testing
 
