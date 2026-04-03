@@ -14,7 +14,6 @@ The learning journey focused on several key areas:
 - **Unit Testing & Assertions**: Intensive use of **JUnit 5** and **AssertJ** to write readable and expressive tests.
 - **Mocks & Doubles**: Mastering **Mockito** to isolate components and simulate complex behaviors.
 - **Methodologies**: Practical application of **TDD** (Test Driven Development), **London TDD** (outside-in approach), and **BDD** (Behavior Driven Development).
-- **Integration & E2E Testing**: Validating component interactions and full user journeys using **Selenium**.
 - **Quality & Coverage**: Analyzing code coverage with **JaCoCo** and integrating continuous software quality via **SonarCloud/SonarQube**.
 
 ## "Indie" Evolution: Complexity & Scale

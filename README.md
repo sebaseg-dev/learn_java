@@ -48,9 +48,10 @@ My learning path is structured to leverage my existing experience in PHP (Symfon
 
 **Key Achievements:**
 - **Robust Test Strategy**: Deepened the Test Pyramid, JUnit 5, and AssertJ to build a verified and documented codebase.
-- **Advanced Mocks**: Learnt Mockito for component isolation and complex behavior simulation.
+- **Advanced Mocks**: Implemented Mockito for component isolation and complex behavior simulation.
 - **Income Tax Engine**: Implemented a progressive IR calculation engine with official French tax brackets.
 - **Fiscal Logic Refinement**: Integrated comparative simulation between Flat Tax and Progressive IR, accounting for activity-specific deductions.
+- **Quality Assurance**: Ensured code coverage and adherence to industry standards by implementing **SonarQube** and its standard quality gates.
 
 **Courses Completed:**
 - ✅ [Testing for Quality Java Applications](https://openclassrooms.com/fr/courses/6100311-testez-votre-code-java-pour-realiser-des-applications-de-qualite)

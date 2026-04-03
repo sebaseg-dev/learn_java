@@ -1,5 +1,9 @@
 # Indie - French Freelance Tax & Social Contribution Simulator
 
+[![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-highlight.svg)](https://sonarcloud.io/summary/new_code?id=learn_java-indie)
+
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=learn_java-indie)](https://sonarcloud.io/summary/new_code?id=learn_java-indie)
+
 ## Purpose
 
 As a former finance manager turned developer, I have extensive experience navigating complex tax regulations. This project serves as a bridge between my professional background and my journey to mastering Java as a core language in my technical stack.
@@ -29,22 +33,26 @@ The architecture separates flat-rate contributions from progressive tax calculat
 - **Strategy Pattern (`FlatTaxCalculator`)**: Used for social contributions, professional training, and tax withholding. Different strategies (e.g., `MicroSocialCalculator`) implement this interface.
 - **Progressive Tax Engine (`RevenueTaxCalculator`)**: A specialized engine that implements the official French progressive income tax (IR) scale, including dynamic threshold management and activity-specific deductions (34%, 50%, 71%).
 
-### 3. Dependency Injection
+### 3. Comparison of Fiscal Paths
+The simulator performs a dual calculation to help users choose the best tax regime:
+- **Flat Tax Option** (*Prélèvement Forfaitaire Libératoire*): Calculated by `MicroWithholdTaxCalculator`.
+- **Standard IR**: Calculated by `RevenueTaxCalculator`.
+
+### 4. Dependency Injection
 Objects are composed rather than tightly coupled. The `MainController` and `SimulationService` receive their required calculators and providers through their constructors. This promotes testability and allows for easy swapping of components.
 
-### 4. Data-Driven Configuration
+### 5. Data-Driven Configuration
 Tax rates and social contribution percentages are not hardcoded. They are stored in a `rates.json` file and loaded via a `JsonRatesProvider`. This separation of data from logic allows the application to be updated for new fiscal years without modifying the source code.
 
 ## Technical Highlights & Best Practices
 
 - **Financial Precision**: All monetary calculations use `java.math.BigDecimal` to avoid rounding errors.
 - **Robust Type System**: Extensive use of Enums (`BusinessActivity`, `SocialCategory`) to ensure type safety and represent complex legal statuses.
-- **Quality Assurance**: 
-    - **Unit Testing**: Leveraging **JUnit 5** and **AssertJ** for expressive and documented business logic verification.
-    - **Isolation**: Use of **Mockito** (where applicable) to isolate components and test specific behaviors.
-    - **Clean Code**: Strict adherence to SOLID principles and DRY to maintain a professional-grade codebase.
-    - **Code Coverage**: implemented with **Jacoco** to ensure code quality and maintainability.
-    - **Continuous Integration**: Implemented with **GitHub Actions** to automate testing and **SonarQube** for code quality analysis.
+- **Continuous software quality**: Using **SonarCloud/SonarQube** to analyze and track code quality.
+- **Unit Testing**: Leveraging **JUnit 5** and **AssertJ** for expressive and documented business logic verification.
+- **Mocks & Isolation**: Use of **Mockito** to isolate components and test specific behaviors.
+- **Clean Code & Coverage**: Strict adherence to SOLID principles and DRY, with **Jacoco** implemented to ensure code quality and identify areas for improvement.
+- **CI/CD**: Implemented with **GitHub Actions** to automate testing and analysis.
 - **Advanced Fiscal Logic**: Implementation of comparative simulation between the "Flat Tax" option (*Prélèvement Forfaitaire*) and the standard progressive tax calculation.
 
 ## Setting Up the Project
