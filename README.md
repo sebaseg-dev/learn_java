@@ -39,7 +39,6 @@ My learning path is structured to leverage my existing experience in PHP (Symfon
 
 **Courses Completed:**
 - ✅ [Maintainable Code with MVC & SOLID](https://openclassrooms.com/fr/courses/6810956-ecrivez-du-code-java-maintenable-avec-mvc-et-solid)
-- ✅ [Testing & Quality Assurance](https://openclassrooms.com/fr/courses/6100311-testez-votre-code-java-pour-realiser-des-applications-de-qualite)
 
 ---
 
@@ -55,6 +54,10 @@ My learning path is structured to leverage my existing experience in PHP (Symfon
 
 **Courses Completed:**
 - ✅ [Testing for Quality Java Applications](https://openclassrooms.com/fr/courses/6100311-testez-votre-code-java-pour-realiser-des-applications-de-qualite)
+
+---
+
+### [Week 4 – The Spring ecosystem](./doc/week4.md)
 
 ---
 

@@ -21,13 +21,13 @@ I am a graduate of the OpenClassrooms JavaScript Developer path. I am already pr
 
 - [x] [Maintainable Java Code with MVC and SOLID](https://openclassrooms.com/fr/courses/6810956-ecrivez-du-code-java-maintenable-avec-mvc-et-solid)
 
-## Week 3 – The Spring Ecosystem
+## Week 3 – Code quality
 
 - [x] [Testing for Quality Java Applications](https://openclassrooms.com/fr/courses/6100311-testez-votre-code-java-pour-realiser-des-applications-de-qualite)
+
+## Week 4 – The Spring ecosystem
+
 - [ ] [Java Application with Spring Boot](https://openclassrooms.com/fr/courses/6900101-creez-une-application-java-avec-spring-boot)
 - [ ] [Spring Data & Persistence](https://openclassrooms.com/fr/courses/6982461-utilisez-spring-data-pour-interagir-avec-vos-bases-de-donnees)
-
-## Week 4 – Advanced Topics
-
 - [ ] [Relational Databases with SQL](https://openclassrooms.com/fr/courses/6971126-implementez-vos-bases-de-donnees-relationnelles-avec-sql)
 - [ ] [Debugging Java Applications](https://openclassrooms.com/fr/courses/6692416-debuggez-votre-application-java)
