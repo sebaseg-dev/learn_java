@@ -3,6 +3,7 @@ package fr.sebaseg;
 import fr.sebaseg.indie.controller.MainController;
 import fr.sebaseg.indie.model.calculators.*;
 import fr.sebaseg.indie.model.config.JsonRatesProvider;
+import fr.sebaseg.indie.model.service.SimulationService;
 import fr.sebaseg.indie.view.CommandLineView;
 import fr.sebaseg.indie.view.ViewInterface;
 
@@ -19,13 +20,17 @@ public class App {
 
         RevenueTaxCalculator revenueTaxCalculator = new RevenueTaxCalculator(ratesProvider);
 
-        // Controller
-        MainController controller = new MainController(
-                view,
+        SimulationService simulationService = new SimulationService(
                 taxCalculator,
                 socialContributionCalculator,
                 trainingContributionCalculator,
                 revenueTaxCalculator
+        );
+
+        // Controller
+        MainController controller = new MainController(
+                view,
+                simulationService
         );
 
         controller.start();
