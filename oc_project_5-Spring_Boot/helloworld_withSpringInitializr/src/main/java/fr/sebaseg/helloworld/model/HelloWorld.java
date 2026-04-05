@@ -1,13 +1,13 @@
 package fr.sebaseg.helloworld.model;
 
 public class HelloWorld {
-    String value = "Hello World!";
+    private String value = "Hello World!";
 
-    String getValue() {
+    public String getValue() {
         return value;
     }
 
-    void setValue(String value) {
+    public void setValue(String value) {
         this.value = value;
     }
 
