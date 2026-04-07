@@ -35,5 +35,5 @@ Following the quality-first approach from Week 3, "Indie" underwent a significan
 
 ## Projects
 
-- [oc_project_5-Spring_Boot](../oc_project_5-Spring_Boot/README.md) – Collection of three sub-projects (Hello World, API, and WebApp) demonstrating the power of Spring Boot.
+- [oc_project_5-Spring_Boot](../oc_project_5-Spring_Boot/) – Collection of three sub-projects (Hello World, API, and WebApp) demonstrating the power of Spring Boot.
 - [indie](../indie/README.md) – Now features a clean service layer and comprehensive controller testing.
