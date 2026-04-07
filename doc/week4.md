@@ -2,7 +2,7 @@
 
 Week 4 – The Spring Ecosystem & Architectural Refinement
 
-Workload: ~20h
+Workload: ~XXh
 
 ## Conclusion: The Spring Boot Power
 
