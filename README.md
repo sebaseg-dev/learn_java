@@ -57,7 +57,17 @@ My learning path is structured to leverage my existing experience in PHP (Symfon
 
 ---
 
-### [Week 4 – The Spring ecosystem](./doc/week4.md)
+### [Week 4 – The Spring ecosystem & Architectural Refinement](./doc/week4.md)
+**Focus:** Discovering the Spring Boot power and refactoring the "Indie" simulator with a cleaner service layer and robust controller testing.
+
+**Key Achievements:**
+- **Spring Boot Mastery**: Learned to bootstrap, configure, and deploy Java applications using Spring Boot's powerful ecosystem.
+- **RESTful APIs & Web Apps**: Built both REST controllers and server-side rendered web applications (Thymeleaf).
+- **Indie Refactoring**: Decoupled the controller from calculation logic by introducing a `SimulationService`, improving modularity and testability.
+- **Advanced Testing**: Implemented complex controller tests using **Mockito** and **JUnit 5**, ensuring a reliable state of machine behavior and error handling.
+
+**Courses Completed:**
+- ✅ [Create a Java Application with Spring Boot](https://openclassrooms.com/fr/courses/6900101-creez-une-application-java-avec-spring-boot)
 
 ---
 

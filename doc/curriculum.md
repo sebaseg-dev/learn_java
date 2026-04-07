@@ -27,7 +27,7 @@ I am a graduate of the OpenClassrooms JavaScript Developer path. I am already pr
 
 ## Week 4 – The Spring ecosystem
 
-- [ ] [Java Application with Spring Boot](https://openclassrooms.com/fr/courses/6900101-creez-une-application-java-avec-spring-boot)
+- [x] [Java Application with Spring Boot](https://openclassrooms.com/fr/courses/6900101-creez-une-application-java-avec-spring-boot)
 - [ ] [Spring Data & Persistence](https://openclassrooms.com/fr/courses/6982461-utilisez-spring-data-pour-interagir-avec-vos-bases-de-donnees)
 - [ ] [Relational Databases with SQL](https://openclassrooms.com/fr/courses/6971126-implementez-vos-bases-de-donnees-relationnelles-avec-sql)
 - [ ] [Debugging Java Applications](https://openclassrooms.com/fr/courses/6692416-debuggez-votre-application-java)
