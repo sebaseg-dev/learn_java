@@ -4,7 +4,7 @@ Week 4 – The Spring Ecosystem & Architectural Refinement
 
 Workload: ~XXh
 
-## Conclusion: The Spring Boot Power
+## Create a Java Application with Spring Boot
 
 This week was marked by a deep dive into the Spring ecosystem through the course: [Créez une application Java avec Spring Boot](https://openclassrooms.com/fr/courses/6900101-creez-une-application-java-avec-spring-boot).
 
@@ -19,6 +19,10 @@ After spending several weeks mastering Java's core concepts and manual dependenc
 - **Deployment**: Packaging applications as executable JARs, ready for production.
 
 This course provided the perfect bridge between pure Java logic and modern, enterprise-ready application development.
+
+## Use Spring Data to Query a Database
+
+...
 
 ## "Indie" Evolution: Clean Architecture & Unit Testing
 
