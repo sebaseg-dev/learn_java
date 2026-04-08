@@ -68,6 +68,7 @@ My learning path is structured to leverage my existing experience in PHP (Symfon
 
 **Courses Completed:**
 - ✅ [Create a Java Application with Spring Boot](https://openclassrooms.com/fr/courses/6900101-creez-une-application-java-avec-spring-boot)
+- ✅ [Spring Data & Persistence](https://openclassrooms.com/fr/courses/6982461-utilisez-spring-data-pour-interagir-avec-vos-bases-de-donnees)
 
 ---
 
