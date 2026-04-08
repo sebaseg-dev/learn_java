@@ -24,25 +24,13 @@ public class Product {
     private int cost;
 
     @OneToMany(
+            mappedBy = "product",
             cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            fetch = FetchType.EAGER
+            orphanRemoval = true
     )
-    @JoinColumn(name = "produit_id")
     private List<Comment> comments = new ArrayList<>();
 
-    @ManyToMany(
-            fetch = FetchType.LAZY,
-            cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
-            }
-    )
-    @JoinTable(
-            name = "categorie_produit",
-            joinColumns = @JoinColumn(name = "produit_id"),
-            inverseJoinColumns = @JoinColumn(name = "categorie_id")
-    )
+    @ManyToMany(mappedBy = "products", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     List<Category> categories = new ArrayList<>();
 
     public List<Category> getCategories() {
@@ -91,5 +79,15 @@ public class Product {
 
     public void setCost(int cost) {
         this.cost = cost;
+    }
+
+    public void addComment(Comment comment) {
+        comments.add(comment);
+        comment.setProduct(this);
+    }
+
+    public void removeComment(Comment comment) {
+        comments.remove(comment);
+        comment.setProduct(null);
     }
 }
