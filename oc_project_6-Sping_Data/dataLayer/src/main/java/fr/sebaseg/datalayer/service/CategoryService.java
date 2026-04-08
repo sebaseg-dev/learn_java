@@ -19,4 +19,8 @@ public class CategoryService {
     public Optional<Category> getServiceById(Integer id) {
         return categoryRepository.findById(id);
     }
+
+    public Optional<Category> getCategoryById(int i) {
+        return categoryRepository.findById(i);
+    }
 }
