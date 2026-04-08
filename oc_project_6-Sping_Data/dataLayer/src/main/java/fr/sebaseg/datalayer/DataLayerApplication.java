@@ -37,7 +37,7 @@ public class DataLayerApplication implements CommandLineRunner {
         Iterable<Product> products = productService.getProducts();
         products.forEach(product -> System.out.println(product.getName()));
 
-        Iterable<Category> categories = categoryService.getServices();
+        Iterable<Category> categories = categoryService.getCategories();
         categories.forEach(category -> System.out.println(category.getName()));
 
         Iterable<Comment> comments = commentService.getComments();
@@ -69,5 +69,32 @@ public class DataLayerApplication implements CommandLineRunner {
             System.out.println("Aucune catégorie associée");
         }
 
+        System.out.println("----------------------------------------");
+        categoryService.getCategories().forEach(
+                category -> System.out.println(category.getName())
+        );
+
+        Category newCategory = new Category();
+        newCategory.setName("Promotion1");
+
+        newCategory = categoryService.addCategory(newCategory);
+
+        categoryService.getCategories().forEach(
+                category -> System.out.println(category.getName())
+        );
+
+        System.out.println("----------------------------------------");
+        Product newProduct = new Product();
+        newProduct.setName("AssuranceAuTiersFidelite");
+        newProduct.setDescription("Avec promotion");
+        newProduct.setCost(1000);
+
+        newCategory.addProduct(newProduct);
+
+        newProduct = productService.addProduct(newProduct);
+
+        productService.getProducts().forEach(p -> System.out.println(p.getName()));
+
+        newProduct.getCategories().forEach(category -> System.out.println(category.getName()));
     }
 }

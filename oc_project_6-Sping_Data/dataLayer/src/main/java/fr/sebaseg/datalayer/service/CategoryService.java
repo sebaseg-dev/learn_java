@@ -12,15 +12,15 @@ public class CategoryService {
     @Autowired
     CategoryRepository categoryRepository;
 
-    public Iterable<Category> getServices() {
+    public Iterable<Category> getCategories() {
         return categoryRepository.findAll();
     }
 
-    public Optional<Category> getServiceById(Integer id) {
+    public Optional<Category> getCategoryById(Integer id) {
         return categoryRepository.findById(id);
     }
 
-    public Optional<Category> getCategoryById(int i) {
-        return categoryRepository.findById(i);
+    public Category addCategory(Category category) {
+        return categoryRepository.save(category);
     }
 }
