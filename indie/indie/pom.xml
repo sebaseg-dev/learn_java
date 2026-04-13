@@ -14,6 +14,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
     <sonar.organization>sebaseg-dev</sonar.organization>
+    <sonar.coverage.exclusions>src/main/java/fr/sebaseg/App.java</sonar.coverage.exclusions>
   </properties>
 
   <dependencyManagement>
