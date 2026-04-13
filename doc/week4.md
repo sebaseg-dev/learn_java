@@ -2,7 +2,7 @@
 
 Week 4 – The Spring Ecosystem & Architectural Refinement
 
-Workload: ~XXh
+Workload: ~10h
 
 ## Create a Java Application with Spring Boot
 
@@ -22,7 +22,16 @@ This course provided the perfect bridge between pure Java logic and modern, ente
 
 ## Use Spring Data to Query a Database
 
-...
+To complement the web development part, I explored data persistence through the course: [Utilisez Spring Data pour interagir avec vos bases de données](https://openclassrooms.com/fr/courses/6982461-utilisez-spring-data-pour-interagir-avec-vos-bases-de-donnees).
+
+The shift from manual SQL queries to Spring Data JPA significantly improved how I handle data. By using an Object-Relational Mapping (ORM) approach, the database becomes an extension of the Java code rather than a separate, disconnected layer.
+
+**Key Takeaways from the course:**
+- **JPA & Hibernate**: Mapping Java classes to database tables using annotations (`@Entity`, `@Id`, `@Table`). 
+- **The Repository Pattern**: Using JpaRepository to perform CRUD operations (Create, Read, Update, Delete) without writing boilerplate SQL. 
+- **Relationship Management**: Modeling data with `@OneToMany`, `@ManyToOne`, and `@ManyToMany` (both uni- and bidirectional). 
+- **Custom Queries**: Implementing specific business logic using **Derived Queries** (method naming convention) and **JPQL** with the `@Query` annotation for more complex needs. 
+- **Environment Setup**: Configuring the application.properties to connect the Spring Boot application to a live database.
 
 ## "Indie" Evolution: Clean Architecture & Unit Testing
 

@@ -9,7 +9,8 @@ My learning path is structured to leverage my existing experience in PHP (Symfon
 - **[Week 0: Strategy & Context](./doc/week0.md)** – Why Java? Market analysis and curriculum design.
 - **[Week 1: Foundations & Tooling](./doc/week1.md)** – Core Java, Maven, and transitioning from PHP/JS.
 - **[Week 2: Clean Code & Architecture](./doc/week2.md)** – MVC, SOLID principles, and the birth of "Indie".
-- **[Week 3 – Testing & New functionalities for Indie](./doc/week3.md)**
+- **[Week 3 – Testing & New functionalities for Indie](./doc/week3.md)** – JUnit 5, Mockito, and complex fiscal logic.
+- **[Week 4 – The Spring Ecosystem & Architectural Refinement](./doc/week4.md)** – Spring Boot, Data JPA, and Service Layer refactoring.
 ---
 
 ## 📈 Weekly Progress
@@ -63,6 +64,7 @@ My learning path is structured to leverage my existing experience in PHP (Symfon
 **Key Achievements:**
 - **Spring Boot Mastery**: Learned to bootstrap, configure, and deploy Java applications using Spring Boot's powerful ecosystem.
 - **RESTful APIs & Web Apps**: Built both REST controllers and server-side rendered web applications (Thymeleaf).
+- **Data Persistence**: Integrated Spring Data JPA for efficient database access and persistence.
 - **Indie Refactoring**: Decoupled the controller from calculation logic by introducing a `SimulationService`, improving modularity and testability.
 - **Advanced Testing**: Implemented complex controller tests using **Mockito** and **JUnit 5**, ensuring a reliable state of machine behavior and error handling.
 
