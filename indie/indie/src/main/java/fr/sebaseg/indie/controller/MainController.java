@@ -19,14 +19,23 @@ public class MainController {
     }
 
     private final ViewInterface view;
-    private final SimulationService simulationService;
+    private final FlatTaxCalculator taxCalculator;
+    private final FlatTaxCalculator socialContributionCalculator;
+    private final FlatTaxCalculator trainingContributionCalculator;
+    private final RevenueTaxCalculator revenueTaxCalculator;
 
     public MainController(
             ViewInterface view,
-            SimulationService simulationService
+            FlatTaxCalculator taxCalculator,
+            FlatTaxCalculator socialContributionCalculator,
+            FlatTaxCalculator trainingContributionCalculator,
+            RevenueTaxCalculator revenueTaxCalculator
     ) {
         this.view = view;
-        this.simulationService = simulationService;
+        this.taxCalculator = taxCalculator;
+        this.socialContributionCalculator = socialContributionCalculator;
+        this.trainingContributionCalculator = trainingContributionCalculator;
+        this.revenueTaxCalculator = revenueTaxCalculator;
     }
 
     public void start() {
@@ -45,17 +54,16 @@ public class MainController {
                 view.showActivity(profile.getActivity());
                 view.showRevenue(profile.getTurnover());
 
-                SimulationResult result = simulationService.launchSimulation(profile);
+                SimulationResult result = new SimulationService(taxCalculator, socialContributionCalculator, trainingContributionCalculator, revenueTaxCalculator).launchSimulation(profile);
 
                 view.showResults(result);
 
                 state = APP_STATE.STOP;
             } catch (CalculationException e) {
                 view.showErrorMessage(e.getMessage());
-                state = APP_STATE.STOP;
             } catch (Exception e) {
                 view.showErrorMessage("Erreur inattendue : " + e.getMessage());
-                state = APP_STATE.STOP;
+                break;
             }
         }
 

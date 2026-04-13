@@ -9,8 +9,7 @@ My learning path is structured to leverage my existing experience in PHP (Symfon
 - **[Week 0: Strategy & Context](./doc/week0.md)** – Why Java? Market analysis and curriculum design.
 - **[Week 1: Foundations & Tooling](./doc/week1.md)** – Core Java, Maven, and transitioning from PHP/JS.
 - **[Week 2: Clean Code & Architecture](./doc/week2.md)** – MVC, SOLID principles, and the birth of "Indie".
-- **[Week 3 – Testing & New functionalities for Indie](./doc/week3.md)** – JUnit 5, Mockito, and complex fiscal logic.
-- **[Week 4 – The Spring Ecosystem & Architectural Refinement](./doc/week4.md)** – Spring Boot, Data JPA, and Service Layer refactoring.
+- **[Week 3 – Testing & New functionalities for Indie](./doc/week3.md)**
 ---
 
 ## 📈 Weekly Progress
@@ -40,6 +39,7 @@ My learning path is structured to leverage my existing experience in PHP (Symfon
 
 **Courses Completed:**
 - ✅ [Maintainable Code with MVC & SOLID](https://openclassrooms.com/fr/courses/6810956-ecrivez-du-code-java-maintenable-avec-mvc-et-solid)
+- ✅ [Testing & Quality Assurance](https://openclassrooms.com/fr/courses/6100311-testez-votre-code-java-pour-realiser-des-applications-de-qualite)
 
 ---
 
@@ -55,22 +55,6 @@ My learning path is structured to leverage my existing experience in PHP (Symfon
 
 **Courses Completed:**
 - ✅ [Testing for Quality Java Applications](https://openclassrooms.com/fr/courses/6100311-testez-votre-code-java-pour-realiser-des-applications-de-qualite)
-
----
-
-### [Week 4 – The Spring ecosystem & Architectural Refinement](./doc/week4.md)
-**Focus:** Discovering the Spring Boot power and refactoring the "Indie" simulator with a cleaner service layer and robust controller testing.
-
-**Key Achievements:**
-- **Spring Boot Mastery**: Learned to bootstrap, configure, and deploy Java applications using Spring Boot's powerful ecosystem.
-- **RESTful APIs & Web Apps**: Built both REST controllers and server-side rendered web applications (Thymeleaf).
-- **Data Persistence**: Integrated Spring Data JPA for efficient database access and persistence.
-- **Indie Refactoring**: Decoupled the controller from calculation logic by introducing a `SimulationService`, improving modularity and testability.
-- **Advanced Testing**: Implemented complex controller tests using **Mockito** and **JUnit 5**, ensuring a reliable state of machine behavior and error handling.
-
-**Courses Completed:**
-- ✅ [Create a Java Application with Spring Boot](https://openclassrooms.com/fr/courses/6900101-creez-une-application-java-avec-spring-boot)
-- ✅ [Spring Data & Persistence](https://openclassrooms.com/fr/courses/6982461-utilisez-spring-data-pour-interagir-avec-vos-bases-de-donnees)
 
 ---
 
