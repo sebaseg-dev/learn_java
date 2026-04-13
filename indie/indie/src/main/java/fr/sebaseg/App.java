@@ -9,6 +9,11 @@ import fr.sebaseg.indie.view.ViewInterface;
 
 public class App {
     public static void main(String[] args) {
+        MainController controller = createController();
+        controller.start();
+    }
+
+    static MainController createController() {
         // View
         ViewInterface view = new CommandLineView();
 
@@ -28,11 +33,10 @@ public class App {
         );
 
         // Controller
-        MainController controller = new MainController(
+
+        return new MainController(
                 view,
                 simulationService
         );
-
-        controller.start();
     }
 }

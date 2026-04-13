@@ -118,4 +118,14 @@ public class MainControllerTest {
         verify(view).showErrorMessage("Erreur de calcul");
         verify(view).showGoodbyeMessage();
     }
+
+    @Test
+    void start_ShouldShowGenericError_WhenUnexpectedExceptionOccurs() {
+        when(view.promptForActivity(any())).thenThrow(new RuntimeException("Crash système"));
+
+        controller.start();
+
+        verify(view).showErrorMessage(contains("Erreur inattendue : Crash système"));
+        verify(view).showGoodbyeMessage();
+    }
 }
