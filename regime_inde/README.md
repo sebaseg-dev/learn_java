@@ -35,3 +35,40 @@ Dans ma réflexion, il apparaît alors que l'entre-deux parfait (comme souvent) 
 - Structure de la donnée en tables (évite des problèmes de manipulation telles que l'édition d'un JSON d'une centaine de lignes à la main).
 Nous n'utiliserons pas ou peu les relations entre les tables, mais c'est une technologie mieux dimensionnée qu'un serveur SQL (type PostgreSQL) et plus robuste qu'un fichier JSON édité à la main.
 
+## Conception de l'interface
+
+La logique de l'application repose sur un triptyque classique de système :
+1. L'utilisateur saisit ses données (remplissage du profil entrepreneur – données d'entrée) ;
+2. Le simulateur calcule les impôts et cotisations sociales en fonction des régimes et options possibles (traitement) ;
+3. L'application renvoie vers les sources officielles d'une part et des explications complémentaires d'autre part (restitution).
+
+L'interface de l'application suit cette approche dans une interface simple, intuitive, accessible : tout doit se passer en une seule page, les liens entre les données des différentes étapes sont clairement visibles.
+
+Décrire un arbre logique dans un seul cas de figure est assez simple : au sein d'un seul régime, certains choix sont possibles ou non, il est ainsi facile de représenter un cheminement linéaire. Cependant, le choix parmi plusieurs régimes est complexe : les différentes dispositions et traitements dépendent beaucoup de chaque régime et nécessitent des données ou des typologies de données distinctes, ne donnant pas forcément de résultats simples à comparer. L'enjeu d'une restitution unique des résultats ne doit ni conduire à des raccourcis pouvant induire en erreur ou être confusant pour l'utilisateur, ni devenir trop lourde visuellement avec une interface trop chargée pour prendre en compte les spécificités de chaque cas.
+
+> L'utilisateur est indépendant dans sa recherche, il doit arriver à un niveau de maîtrise suffisant pour zeffectuer un choix libre et éclairé sur sa structure et ses options.
+> Cependant, il doit être considéré comme novice : cette application est un des points d'entrée de sa recherche ou de confirmation de ses recherches antérieures, il doit quitter l'application en ayant progressé sur sa compréhension du sujet.
+
+### Interface et données
+
+#### Régimes prévus
+
+Régimes prévus:
+- Micro entreprise
+  - Imposition au réel des revenus
+  - Option pour le Prélèvement Forfaitaire Libératoire (PFL)
+  - Avec application de l'Aide à la Création ou à la Reprise d'une Entreprise (ACRE)
+  - Sans demande d'ACRE
+- Entreprise individuelle (EI)
+- Entreprise Unipersonnelle à Responsabilité Limitée (EURL)
+- Société par Actions Simplifiée Unipersonnelle (SASU)
+- Société d'Exercice Libéral Unipersonnelle à Responsabilité Limitée (SELURL)
+- Société d'Exercice Libéral par Actions Simplifiée Unipersonnelle (SELASU)
+
+#### Tableau d'utilisation des données d'entrée
+
+| Données d'entrée     | Micro entreprise | EI | EURL | SASU | SELURL | SELASU | 
+|----------------------|------------------|----|------|------|--------|--------|
+| Catégorie d'activité | ✅                |    |      |      |        |        |
+| Chiffre d'affaires   | ✅                |    |      |      |        |        |
+
