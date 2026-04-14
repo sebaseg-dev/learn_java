@@ -3,3 +3,7 @@
 Week 5 – Indie to Spring Boot
 
 Workload: ~XXh
+
+## Starting a new project
+
+- []
