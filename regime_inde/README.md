@@ -37,6 +37,8 @@ Nous n'utiliserons pas ou peu les relations entre les tables, mais c'est une tec
 
 ## Conception de l'interface
 
+### Postulat de base
+
 La logique de l'application repose sur un triptyque classique de système :
 1. L'utilisateur saisit ses données (remplissage du profil entrepreneur – données d'entrée) ;
 2. Le simulateur calcule les impôts et cotisations sociales en fonction des régimes et options possibles (traitement) ;
@@ -46,29 +48,32 @@ L'interface de l'application suit cette approche dans une interface simple, intu
 
 Décrire un arbre logique dans un seul cas de figure est assez simple : au sein d'un seul régime, certains choix sont possibles ou non, il est ainsi facile de représenter un cheminement linéaire. Cependant, le choix parmi plusieurs régimes est complexe : les différentes dispositions et traitements dépendent beaucoup de chaque régime et nécessitent des données ou des typologies de données distinctes, ne donnant pas forcément de résultats simples à comparer. L'enjeu d'une restitution unique des résultats ne doit ni conduire à des raccourcis pouvant induire en erreur ou être confusant pour l'utilisateur, ni devenir trop lourde visuellement avec une interface trop chargée pour prendre en compte les spécificités de chaque cas.
 
-> L'utilisateur est indépendant dans sa recherche, il doit arriver à un niveau de maîtrise suffisant pour zeffectuer un choix libre et éclairé sur sa structure et ses options.
+> L'utilisateur est indépendant dans sa recherche, il doit arriver à un niveau de maîtrise suffisant pour effectuer un choix libre et éclairé sur sa structure et ses options.
 > Cependant, il doit être considéré comme novice : cette application est un des points d'entrée de sa recherche ou de confirmation de ses recherches antérieures, il doit quitter l'application en ayant progressé sur sa compréhension du sujet.
 
 ### Interface et données
 
 #### Régimes prévus
 
-Régimes prévus:
+Régimes prévus :
 - Micro entreprise
   - Imposition au réel des revenus
   - Option pour le Prélèvement Forfaitaire Libératoire (PFL)
-  - Avec application de l'Aide à la Création ou à la Reprise d'une Entreprise (ACRE)
-  - Sans demande d'ACRE
 - Entreprise individuelle (EI)
 - Entreprise Unipersonnelle à Responsabilité Limitée (EURL)
 - Société par Actions Simplifiée Unipersonnelle (SASU)
 - Société d'Exercice Libéral Unipersonnelle à Responsabilité Limitée (SELURL)
 - Société d'Exercice Libéral par Actions Simplifiée Unipersonnelle (SELASU)
 
+Options :
+- Aide à la Création ou à la Reprise d'une Entreprise (ACRE) : pour éviter la multiplication des colonnes dans le tableau de résultats, vu que l'ACRE est une option disponible dans beaucoup de cas différents, elle sera traitée comme une réduction de charges (et c'est bien la nature de cette aide), donc viendra dans une ligne du tableau (et non pas dans une colonne dédiée) en déduction des cotisations sociales calculées.
+
 #### Tableau d'utilisation des données d'entrée
 
 | Données d'entrée     | Micro entreprise | EI | EURL | SASU | SELURL | SELASU | 
-|----------------------|------------------|----|------|------|--------|--------|
-| Catégorie d'activité | ✅                |    |      |      |        |        |
-| Chiffre d'affaires   | ✅                |    |      |      |        |        |
+|:---------------------|:----------------:|:--:|:----:|:----:|:------:|:------:|
+| Catégorie d'activité |        ✔         |    |      |      |        |        |
+| Chiffre d'affaires   |        ✔         |    |      |      |        |        |
+
+#### Tableau d'organisation des données de sortie
 
