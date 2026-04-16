@@ -51,6 +51,12 @@ Décrire un arbre logique dans un seul cas de figure est assez simple : au sein 
 > L'utilisateur est indépendant dans sa recherche, il doit arriver à un niveau de maîtrise suffisant pour effectuer un choix libre et éclairé sur sa structure et ses options.
 > Cependant, il doit être considéré comme novice : cette application est un des points d'entrée de sa recherche ou de confirmation de ses recherches antérieures, il doit quitter l'application en ayant progressé sur sa compréhension du sujet.
 
+### Hypothèses de base dans la conception
+
+- L'Utilisateur connait sa catégorie d'activité. Pour effectuer les calculs des impôts et taxes, nous avons besoin de connaitre la catégorie de l'activité (BIC, BNC, libéral – réglementé ou non, location de meublé classé...). Si l'on fonctionne avec l'ensemble des impôts et taxes, la catgorisation devient un sujet complexe. Nous pourrions ici aider à la détermination de la catégorie, au moins principale, de l'activité ; mais ce sont des réflexions supplémentaires qui ne font pas partie de la problématique à laquelle répond cette application et ne sera pas proposé dans une première version.
+- L'activité de l'Utilisateur ne se déroule que dans une seule catégorie. Un entrepreneur peut proposer plusieurs types d'activités, imposés différemment (notamment pour le cas de l'Entreprise). Par exemple, un développeur free-lance peut réaliser des prestations de service free-lance (par exemple un audit d'accessibilité), mais aussi avoir une partie accessoire considérée comme commerciale (il développe un SaaS dont il vend des licences d'utilisation). L'ensemble de son activité correspond à deux catégories dans ce cas, avec l'application de plafonds (plafond de CA pour le régime micro), de taux (d'abattement, d'imposition, de cotisation) différents en fonction de ses activités. Pour la première version, une approche simplifiée sera adoptée : une seule catégorie d'activité sera prise en compte, la catégorie principale.
+- Les revenus de l'Utilisateur liés à son activité indépendante sont traités comme ses revenus principaux dans un foyer fiscal d'une seule part. Les impôts sur le revenu sont des impôts personnels : il n'existe pas un taux unique pour taxer tous les revenus (notion de foyer fiscal, impact de la priorisation des revenus pour affecter l'impôt à chaque activité, particularités de niches ou crédits/réductions d'impôts...). Les revenus tirés de la simulation ne prendront pas en compte les caractéristiques personnelles de l'assujetti ; le premier euro imposable au titre de l'activité d'indépendant sera le premier euro imposé sur la première tranche du barème, sans prise en compte d'éléments extérieurs (par exemple la déductibilité des dons à des organisations d'utilité publique). Dans une version ultérieure, il devrait être possible de déterminer une autre activité principale, de manière à ajuster la tranche utilisée pour l'imposition du premier euro (exemple de l'auto-entreprise en complément d'activité : l'utilisateur à un travail salarié qui sera imposé sur les premières tranches, l'activité indépendante est complémentaire et commencera sur des tranches suivantes).
+
 ### Interface et données
 
 #### Régimes prévus
@@ -75,5 +81,17 @@ Options :
 | Catégorie d'activité |        ✔         |    |      |      |        |        |
 | Chiffre d'affaires   |        ✔         |    |      |      |        |        |
 
+_Pour le moment, les autres régimes (EI, EURL, SASU, SELURL et SELASU) n'ont pas été étudiés._
+
 #### Tableau d'organisation des données de sortie
+
+| Poste                                       | Micro entreprise (PFL) | Micro entreprise (IR) |
+|:--------------------------------------------|:----------------------:|:---------------------:|
+| Chiffre d'affaires                          |           ✔            |           ✔           |
+| Impôt sur le revenu                         |           ✔            |           ✔           |
+| Cotisations sociales                        |           ✔            |           ✔           |
+| Contribution à la Formation Professionnelle |           ✔            |           ✔           |
+| Revenus nets                                |           ✔            |           ✔           |
+
+_Pour le moment, toutes les lignes sont applicables à tous les régimes. Les régimes supplémentaires (notamment des sociétés) n'ayant pas encore été étudiées, ce sont eux qui viendront modifier la représentation des résultats et introduire des lignes supplémentaires : cela créera des problèmes de comparaison des résultats, donc un besoin de représenter un tableau unique ici pour prendre en compte les difficultés de restitution._
 
