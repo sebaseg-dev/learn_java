@@ -41,6 +41,8 @@ Nous n'utiliserons pas ou peu les relations entre les tables, mais c'est une tec
 
 _Pour le moment, je vais représenter uniquement les taux et données utilisées dans le POC, applicables aux régimes micro._
 
+La première date examinée pour le suivi historique des taux est le 1er janvier 2025. Pour les taux plus anciens toujorus applicables, nous considérerons que la date d'application est le 1er janvier 2025 pour faciliter le suivi de la règlementation (comme pour le PLF dont les taux n'ont pas changé depuis 2009). Aussi, pour faciliter le suivi, la base de données devrait être structurée comme les textes : _un texte = une table_.
+
 ##### Impôts sur le revenu
 
 **Barème 2026** : le barème 2026 sera déterminé par la loi de finances 2027.
@@ -58,11 +60,11 @@ _Contrairement au POC, je représente le seuil des tranches plutôt que le plafo
 | 5       | 181 917 € | 45 % |
 
 
-[Source barème (CGI)](https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006179577/)
+[Source barème (CGI art. 197)](https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006179577/)
 
 Montant minimal de mise en recouvrement de l'impôt : 61 €
 
-[Source montant minimal (CGI)](https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006162896/)
+[Source montant minimal (CGI art. 1657)](https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006162896/)
 
 _Données applicables pour les revenus perçus du 01/01/2025 au 31/12/2025._
 
@@ -78,9 +80,9 @@ _Données applicables pour les revenus perçus du 01/01/2025 au 31/12/2025._
 | Professions libérales non réglementées (Hors Cipav)                                                                     |      25,6% |
 | Professions libérales relevant de la Cipav                                                                              |      23,2% |
 
-[Source (CSS)](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000052218738/2026-01-01)
+[Source (CSS art. D613-4)](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000052218738/2026-01-01)
 
-**Applicable au 1er janvier 2025**
+**Applicable depuis le 1er janvier 2025**
 
 | Catégorie                                                                                                               | Cotisation |
 |:------------------------------------------------------------------------------------------------------------------------|-----------:|
@@ -90,7 +92,61 @@ _Données applicables pour les revenus perçus du 01/01/2025 au 31/12/2025._
 | Professions libérales non réglementées (Hors Cipav)                                                                     |      24,6% |
 | Professions libérales relevant de la Cipav                                                                              |      23,2% |
 
-[Source (CSS)](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000052218738/2026-01-01)
+[Source (CSS art. D613-4)](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000052218738/2026-01-01)
+
+##### Prélèvement Forfaitaire Libératoire (PLF)
+
+_Taux inchangés à minima depuis le 1er janvier 2009._
+
+| Catégorie                                                                                                                |  Taux |
+|:-------------------------------------------------------------------------------------------------------------------------|------:|
+| BIC – Commerce, restauration et logement (sauf location de meublés)                                                      |   1 % |
+| BIC – Autres activités relevant des BIC (notamment prestations de services commerciales, location de meublés classés...) | 1,7 % |
+| BNC                                                                                                                      |  2,2% |
+
+[Source (CGI art. 151-0)](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000036426839/)
+
+##### Contribution à la Formation Professionnelle (CFP)
+
+_Taux inchangés à minima depuis le 1er janvier 2023._
+
+| Catégorie            |  Taux |
+|:---------------------|------:|
+| Activité commerciale | 0,1 % |
+| Activité artisanale  | 0,3 % |
+| Activité libérale    | 0,2 % |
+
+[Source (CT art. L6331-48)](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000044056633)
+
+##### Abattement forfaitaire régime micro-BIC à l'IR
+
+**Applicable depuis le 1er janvier 2025** (dates de revenus – déclaration 2026)
+
+| Catégorie                                                                     | Taux |
+|:------------------------------------------------------------------------------|-----:|
+| BIC – Activité commerciale et d'hébergement                                   | 71 % |
+| BIC – Activité de prestation de services                                      | 50 % |
+| BIC – Activité de location de meublés de tourisme classés et chambres d'hôtes | 50 % |
+| BIC – Activité de location de meublés de tourisme non classés                 | 30 % |
+
+Montant minimal de l'abattement : 305 €
+
+[Source (CGI art. 50-0)](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042159220/)
+
+##### Abattement forfaitaire régime micro-BNC à l'IR
+
+_Taux inchangés à minima depuis le 3 juin 2023._
+
+**Applicable depuis le 1er janvier 2025** (dates de revenus – déclaration 2026)
+
+| Catégorie | Taux |
+|:----------|-----:|
+| BNC       | 34 % |
+
+Montant minimal de l'abattement : 305 €
+
+[Source (CGI art. 102 ter)](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000053546823/2026-02-21)
+
 
 ## Conception de l'interface
 
