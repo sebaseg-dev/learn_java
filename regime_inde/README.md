@@ -24,7 +24,9 @@ Afin de mettre en œuvre mes apprentissages dans un cas concret, étant issu d'u
 - SQLite
 - SonarQube
 
-### Choix de technologie : SQLite pour la donnée
+### Base de données
+
+#### Choix de technologie : SQLite pour la donnée
 
 Dans mon projet d'apprentissage, qui a donné lieu au développement d'un petit POC qui permet de faire les calculs pour un régime micro, j'ai utilisé un simple modèle de données basé sur un fichier JSON. L'idée étant qu'aucune donnée concernant les utilisateurs ou les saisies ne sera stockée, le format JSON permet de stocker les taux de l'administration tout en permettant une lecture et une mise à jour à la main. Cependant, la manipulation d'un JSON à la main est particulièrement risquée : avec le grossissement du fichier, le format perd de sa lisibilité pour un être humain, la syntaxe, bien que simple, nécessite d'être utilisée avec précision, faute de quoi, le projet tombe.
 
@@ -34,6 +36,61 @@ Dans ma réflexion, il apparaît alors que l'entre-deux parfait (comme souvent) 
 - Base de données sous forme de fichier (pas de service dédié, simple d'accès, de duplication, de remplacement, de sauvegarde...) ;
 - Structure de la donnée en tables (évite des problèmes de manipulation telles que l'édition d'un JSON d'une centaine de lignes à la main).
 Nous n'utiliserons pas ou peu les relations entre les tables, mais c'est une technologie mieux dimensionnée qu'un serveur SQL (type PostgreSQL) et plus robuste qu'un fichier JSON édité à la main.
+
+#### Représentation de la donnée
+
+_Pour le moment, je vais représenter uniquement les taux et données utilisées dans le POC, applicables aux régimes micro._
+
+##### Impôts sur le revenu
+
+**Barème 2026** : le barème 2026 sera déterminé par la loi de finances 2027.
+
+**Barème 2025** (2025 étant l'année de perception des revenus – barème applicable pour l'imposition en 2026)
+
+_Contrairement au POC, je représente le seuil des tranches plutôt que le plafond, ce qui permet d'avoir une règle `NOT NULL` sur cette colonne également._
+
+| Tranche |     Seuil | Taux |
+|:--------|----------:|-----:|
+| 1       |       0 € |  0 % |
+| 2       |  11 601 € | 11 % |
+| 3       |  29 580 € | 30 % |
+| 4       |  84 578 € | 41 % |
+| 5       | 181 917 € | 45 % |
+
+
+[Source barème (CGI)](https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006179577/)
+
+Montant minimal de mise en recouvrement de l'impôt : 61 €
+
+[Source montant minimal (CGI)](https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006162896/)
+
+_Données applicables pour les revenus perçus du 01/01/2025 au 31/12/2025._
+
+##### Cotisations du régime micro-social
+
+**Applicable au 1er janvier 2026**
+
+| Catégorie                                                                                                               | Cotisation |
+|:------------------------------------------------------------------------------------------------------------------------|-----------:|
+| Vente de marchandises et fourniture d'hébergement (sauf location d'habitation meublée et logements meublés de tourisme) |     12,3 % |
+| Location de logements meublés de tourisme classés                                                                       |        6 % |
+| Prestation de services en BIC (y compris location de locaux d'habitation meublés et chambres d’hôtes)                   |     21,2 % |
+| Professions libérales non réglementées (Hors Cipav)                                                                     |      25,6% |
+| Professions libérales relevant de la Cipav                                                                              |      23,2% |
+
+[Source (CSS)](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000052218738/2026-01-01)
+
+**Applicable au 1er janvier 2025**
+
+| Catégorie                                                                                                               | Cotisation |
+|:------------------------------------------------------------------------------------------------------------------------|-----------:|
+| Vente de marchandises et fourniture d'hébergement (sauf location d'habitation meublée et logements meublés de tourisme) |     12,3 % |
+| Location de logements meublés de tourisme classés                                                                       |        6 % |
+| Prestation de services en BIC (y compris location de locaux d'habitation meublés et chambres d’hôtes)                   |     21,2 % |
+| Professions libérales non réglementées (Hors Cipav)                                                                     |      24,6% |
+| Professions libérales relevant de la Cipav                                                                              |      23,2% |
+
+[Source (CSS)](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000052218738/2026-01-01)
 
 ## Conception de l'interface
 
