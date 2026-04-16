@@ -51,7 +51,10 @@ Décrire un arbre logique dans un seul cas de figure est assez simple : au sein 
 > L'utilisateur est indépendant dans sa recherche, il doit arriver à un niveau de maîtrise suffisant pour effectuer un choix libre et éclairé sur sa structure et ses options.
 > Cependant, il doit être considéré comme novice : cette application est un des points d'entrée de sa recherche ou de confirmation de ses recherches antérieures, il doit quitter l'application en ayant progressé sur sa compréhension du sujet.
 
-### Hypothèses de base dans la conception
+L'Entrepreneur est indépendant, il doit être dans la maîtrise des données et comprendre finement s'il le souhaite les méthodes et calculs d'imposition et de cotisations. Cependant, les résultats doivent être présentés sous forme d'agrégats, simples à lire, en tant que première approche. Dans la philosophie, j'aime beaucoup l'idée des Urssaf d'avoir implémenté dans ses tableaux de simulation les détails des calculs pour voir ce qui est pris en compte et à quel taux. Cependant, dans son implémentation (voir paragraphe suivant), la visualisation des détails des calculs est difficile à prendre en mains, n'explique pas les applications de certains taux proportionnels, ne reprennent pas la donéne saisie pour mieux comprendre les mécanismes. De mon point de vue, cette feature est nécessaire, mais demande de travaux supplémentaires. Dans l'idéal, c'est ce que j'aimerais implémenter ici.
+
+> **Détails des calculs proposés par les simulateurs de l'Urssaf**. Dans [cet exemple](assets/urssaf-explication_des_taux.png), sur un cas très simple de simulation, comprendre le calcul de l'impôt paraît complexe du point de vue Utilisateur. J'ai fait une activité commerciale, CA de 10k€, IR. Le cas est simple : application du barème intégralement sur la première tranche à 0 %, impôt à 0€. Pourtant, cela affiche une _erreur dans le calcul du taux moyen_, montre dans un jargon programmatique l'application des tranches de barème, propose de "déplier" sans proposer de valeur ajoutée, présente une donnée (le calcul de l'impôt), dans un menu à 5 niveaux et 45 rubriques (capture d'écran tronquée). Si leur simulateur est davantage complet, en prenant en compte beaucoup de cas de figure différents, la restitution n'est ni adaptée au cas d'espèce (la rubrique _Plafonnement parent isolé_ appartient à un cas spécifique et différent) et, s'il veut se montrer transparent, manque de pédagogie.
+
 
 - L'Utilisateur connait sa catégorie d'activité. Pour effectuer les calculs des impôts et taxes, nous avons besoin de connaitre la catégorie de l'activité (BIC, BNC, libéral – réglementé ou non, location de meublé classé...). Si l'on fonctionne avec l'ensemble des impôts et taxes, la catgorisation devient un sujet complexe. Nous pourrions ici aider à la détermination de la catégorie, au moins principale, de l'activité ; mais ce sont des réflexions supplémentaires qui ne font pas partie de la problématique à laquelle répond cette application et ne sera pas proposé dans une première version.
 - L'activité de l'Utilisateur ne se déroule que dans une seule catégorie. Un entrepreneur peut proposer plusieurs types d'activités, imposés différemment (notamment pour le cas de l'Entreprise). Par exemple, un développeur free-lance peut réaliser des prestations de service free-lance (par exemple un audit d'accessibilité), mais aussi avoir une partie accessoire considérée comme commerciale (il développe un SaaS dont il vend des licences d'utilisation). L'ensemble de son activité correspond à deux catégories dans ce cas, avec l'application de plafonds (plafond de CA pour le régime micro), de taux (d'abattement, d'imposition, de cotisation) différents en fonction de ses activités. Pour la première version, une approche simplifiée sera adoptée : une seule catégorie d'activité sera prise en compte, la catégorie principale.
@@ -60,6 +63,7 @@ Décrire un arbre logique dans un seul cas de figure est assez simple : au sein 
 
 - La TVA ne sera pas prise en compte dans la simulation. La TVA est surtout un mécanisme lié à la trésorerie : cela crée des décalages temporels entre décaissements et encaissements (fait générateur, date d'exigibilité, distinction entre facturation/livraison/encaissement/décaissement pour l'Utilisateur). Ce simulateur est orienté résultats et non pas trésorerie. Il faudra juste apporter les informations nécessaires à l'Utilisateur pour qu'il inscrive les bonnes données (cohérence entre CA et charges). Il est alors admis que le CA soit exprimé TTC (utilisateur en franchise de base de TVA).
 - L'historique des taux utilisés démarrera à partir du 1er janvier 2025. La loi de finances 2026 étant récente, il peut être utile d'avoir accès aux taux 2025 pour d'éventuelles comparaisons avec des outils existants ou des données réelles de l'Utilisateur. Cette application n'a pas vocation à comparer les années entre-elles, il ne parait pas utile aujourd'hui de remonter plus loin dans l'historique des taux.
+- Par simplification, la notion de charges s'entend toujours comme une charge déductible au titre du résultat fiscal.
 
 ### Interface et données
 
@@ -70,6 +74,8 @@ Régimes prévus :
   - Imposition au réel des revenus (régime micro-fiscal)
   - Option pour le Prélèvement Forfaitaire Libératoire (PFL)
 - Entreprise individuelle (EI)
+  - Imposition à l'IR
+  - Option pour l'IS
 - Entreprise Unipersonnelle à Responsabilité Limitée (EURL)
 - Société par Actions Simplifiée Unipersonnelle (SASU)
 - Société d'Exercice Libéral Unipersonnelle à Responsabilité Limitée (SELURL)
@@ -82,20 +88,23 @@ Options :
 
 | Données d'entrée     | Micro entreprise | EI | EURL | SASU | SELURL | SELASU | 
 |:---------------------|:----------------:|:--:|:----:|:----:|:------:|:------:|
-| Catégorie d'activité |        ✔         |    |      |      |        |        |
-| Chiffre d'affaires   |        ✔         |    |      |      |        |        |
+| Catégorie d'activité |        ✔         | ✔  |      |      |        |        |
+| Chiffre d'affaires   |        ✔         | ✔  |      |      |        |        |
+| Charges              |        ✔         | ✔  |      |      |        |        |
 
-_Pour le moment, les autres régimes (EI, EURL, SASU, SELURL et SELASU) n'ont pas été étudiés._
+_Pour le moment, les autres régimes (EURL, SASU, SELURL et SELASU) n'ont pas été étudiés._
 
 #### Tableau d'organisation des données de sortie
 
-| Poste                                       | Micro entreprise (PFL) | Micro entreprise (IR) |
-|:--------------------------------------------|:----------------------:|:---------------------:|
-| Chiffre d'affaires                          |           ✔            |           ✔           |
-| Impôt sur le revenu                         |           ✔            |           ✔           |
-| Cotisations sociales                        |           ✔            |           ✔           |
-| Contribution à la Formation Professionnelle |           ✔            |           ✔           |
-| Revenus nets                                |           ✔            |           ✔           |
+| Poste                                       | Micro entreprise (PFL) | Micro entreprise (IR) | EI (IR) | EI (IS) |
+|:--------------------------------------------|:----------------------:|:---------------------:|:-------:|:-------:|
+| Chiffre d'affaires                          |           ✔            |           ✔           |    ✔    |    ✔    |
+| Charges                                     |           ✔            |           ✔           |    ✔    |    ✔    |
+| **Résultat d'exploitation**                 |           ✔            |           ✔           |    ✔    |    ✔    |
+| Impôt sur le revenu                         |           ✔            |           ✔           |    ✔    |    ✔    |
+| Cotisations sociales                        |           ✔            |           ✔           |    ✔    |    ✔    |
+| Contribution à la Formation Professionnelle |           ✔            |           ✔           |    ✔    |    ✔    |
+| **Revenus nets**                            |           ✔            |           ✔           |    ✔    |    ✔    |
 
 _Pour le moment, toutes les lignes sont applicables à tous les régimes. Les régimes supplémentaires (notamment des sociétés) n'ayant pas encore été étudiées, ce sont eux qui viendront modifier la représentation des résultats et introduire des lignes supplémentaires : cela créera des problèmes de comparaison des résultats, donc un besoin de représenter un tableau unique ici pour prendre en compte les difficultés de restitution._
 
