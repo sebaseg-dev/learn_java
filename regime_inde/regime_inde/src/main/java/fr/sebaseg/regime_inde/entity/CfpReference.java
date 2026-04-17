@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "cfp_reference")
@@ -16,6 +15,6 @@ public class CfpReference {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private Date startDate;
+    @Column(name = "start_date", nullable = false)
+    private LocalDate startDate;
 }

@@ -20,7 +20,7 @@ public class CfpRate {
     @Column(nullable = false)
     private String activity;
 
-    @Column(nullable = false)
+    @Column(nullable = false, precision = 10, scale = 6)
     private BigDecimal rate;
 
     @ManyToOne(fetch = FetchType.LAZY)
