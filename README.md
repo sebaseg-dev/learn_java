@@ -11,6 +11,11 @@ My learning path is structured to leverage my existing experience in PHP (Symfon
 - **[Week 2: Clean Code & Architecture](./doc/week2.md)** – MVC, SOLID principles, and the birth of "Indie".
 - **[Week 3 – Testing & New functionalities for Indie](./doc/week3.md)** – JUnit 5, Mockito, and complex fiscal logic.
 - **[Week 4 – The Spring Ecosystem & Architectural Refinement](./doc/week4.md)** – Spring Boot, Data JPA, and Service Layer refactoring.
+
+---
+
+> Project currently on hold until May 2026.
+
 ---
 
 ## 📈 Weekly Progress
