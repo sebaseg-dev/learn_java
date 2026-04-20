@@ -14,7 +14,7 @@ My learning path is structured to leverage my existing experience in PHP (Symfon
 
 ---
 
-> Project currently on hold until May 2026.
+> The project is currently on hold until May 2026.
 
 ---
 
