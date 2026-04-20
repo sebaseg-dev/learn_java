@@ -2,8 +2,11 @@
 
 Week 5 – Indie to Spring Boot
 
-Workload: ~XXh
+Workload: ~8h
 
-## Starting a new project
+To be continued...
 
-- []
+## Starting RégimeIndé
+
+- [Working on design](../regime_inde/README.md)
+- [Initialising Java Spring Boot project](../regime_inde/regime_inde/pom.xml)
